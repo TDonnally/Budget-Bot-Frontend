@@ -3,17 +3,22 @@ import axios from "axios";
 
 function GetAccessToken(props) {
     const [account, setAccount] = useState();
-  
+    console.log(props.user);
     useEffect(() => {
-      async function fetchData() {
-        let accessToken = await axios.post("http://localhost:3000/exchange-public-token", {publicToken: props.publicToken});
-        console.log("accessToken", accessToken.data);
-        const auth = await axios.post("/auth", {access_token: accessToken.data.accessToken});
-        console.log("auth data ", auth.data);
-        setAccount(auth.data.numbers.ach[0]);
-      }
+      const fetchData = async () => {
+        try {
+          const response = await axios.post("http://localhost:3000/exchange-public-token", {
+            publicToken: props.publicToken,
+            email: props.user,
+          });
+          console.log("accessToken", response.data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+    
       fetchData();
-    }, []);
+    }, [props.publicToken, props.user]);
     return account && (
         <>
           <p>Account number: {account.account}</p>

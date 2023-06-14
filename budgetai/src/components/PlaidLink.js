@@ -4,7 +4,7 @@ import {usePlaidLink} from "react-plaid-link";
 
 import GetAccessToken from './GetAccessToken'
 
-const PlaidLink = () => {
+const PlaidLink = (props) => {
   const [linkToken, setLinkToken] = useState();
   const [publicToken, setPublicToken] = useState();
 
@@ -28,7 +28,7 @@ const PlaidLink = () => {
     },
   });
 
-  return publicToken ? (<GetAccessToken publicToken={publicToken} />) : (
+  return publicToken ? (<GetAccessToken user={props.user} publicToken={publicToken} />) : (
       <button onClick={() => open()} disabled={!ready}>
         Connect a bank account
       </button>

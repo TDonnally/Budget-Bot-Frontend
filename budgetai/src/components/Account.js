@@ -4,14 +4,19 @@ import { getCookie, setCookie } from "../scripts/cookies";
 import PlaidLink from "./PlaidLink";
 
 function AccountView({ responseData }) {
-    if (responseData.user.needToken){
+    if (!responseData) {
+        return <div>Loading...</div>;
+      }
+    if (responseData.needToken){
+        console.log(responseData);
         return (
             <div>
-              <PlaidLink/>
+              <PlaidLink user = {responseData.email}/>
             </div>
           );
     }
     else{
+      console.log(responseData.needToken);
         return (
             <div>
               <p>Account</p>
