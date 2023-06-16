@@ -21,7 +21,7 @@ function AccountView({ responseData }) {
         return (
             <div>
               <p>Account</p>
-              <NetWorthChart/>
+              <NetWorthChart data = {responseData}/>
               {responseData && (
                 <div>
                   <h3>Response Data:</h3>
