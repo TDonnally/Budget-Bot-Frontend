@@ -15,9 +15,10 @@ function SignInForm() {
         const config = {
           headers: { "Content-Type": "application/json" },
         };
-      
+        setCookie("token", "");
         try {
             const response = await axios.post(url, formData, config);
+            navigate("/account", {replace: true});
             console.log("Form data sent successfully:", response.data);
             setCookie("token", response.data.authtoken, 1);
             navigate("/account", {replace: true});
