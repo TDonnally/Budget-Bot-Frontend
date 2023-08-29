@@ -3,6 +3,7 @@ import axios from "axios";
 import { getCookie, setCookie } from "../scripts/cookies";
 import PlaidLink from "./PlaidLink";
 import NetWorthChart from "./NetWorthChart";
+import AccountSummaries from "./AccountSummaries";
 
 function AccountView({ responseData }) {
     if (!responseData) {
@@ -20,8 +21,8 @@ function AccountView({ responseData }) {
       console.log(responseData.needToken);
         return (
             <div>
-              <p>Account</p>
               <NetWorthChart data = {responseData}/>
+              <AccountSummaries/>
               {responseData && (
                 <div>
                   <h3>Response Data:</h3>

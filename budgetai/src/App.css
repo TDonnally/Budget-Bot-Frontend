@@ -42,8 +42,19 @@ body{
   color: white;
 }
 
+/* Charts */
+
 .chart-container{
   display:flex;
   align-items: center;
   justify-content: center;
+}
+
+/*Account Summary */
+
+.account-summary>div{
+  padding: 20px;
+}
+.account-summary>div>span:nth-child(2){
+  float: right;
 }
