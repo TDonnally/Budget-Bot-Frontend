@@ -80,3 +80,14 @@ h2{
 .account-summary>div:nth-child(even)>span:nth-child(2){
   color: #FA8EB2;
 }
+
+/*Slider*/
+.slider-container{
+  margin-top: 20px;
+}
+.glide__slide{
+  padding: 10px;
+  background: #424242;
+  border-radius: 20px;
+  width: 300px;
+}
