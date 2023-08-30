@@ -98,8 +98,11 @@ function NetWorthChart() {
     
 
     return (
-        <div className="chart-container">
-            <Line ref={chartRef}data={data} options={options} />
+        <div>
+            <h2>$123,435</h2>
+            <div className="chart-container">
+                <Line ref={chartRef}data={data} options={options} />
+            </div>
         </div>
     );
 }

@@ -23,12 +23,14 @@ function AccountView({ responseData }) {
             <div>
               <NetWorthChart data = {responseData}/>
               <AccountSummaries/>
+              {/*
               {responseData && (
                 <div>
                   <h3>Response Data:</h3>
                   <pre>{JSON.stringify(responseData, null, 2)}</pre>
                 </div>
               )}
+              */}
             </div>
           );
     }

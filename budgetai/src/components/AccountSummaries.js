@@ -3,19 +3,27 @@ import React, { useState } from "react";
 function AccountView({ responseData }) {
    
     return (
-        <div class = "account-summary">
+        <div className = "account-summary">
             <div>
                 <span>Cash</span>
                 <span>$12,123</span>
             </div>
             <div>
-                <span>Cash</span>
+                <span>Credit Cards</span>
                 <span>$12,123</span>
             </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>
+                <span>Assets</span>
+                <span>$12,123</span>
+            </div>
+            <div>
+                <span>Loans</span>
+                <span>$12,123</span>
+            </div>
+            <div>
+                <span>Total</span>
+                <span>$12,123</span>
+            </div>
         </div>
     );
     

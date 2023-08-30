@@ -43,7 +43,11 @@ body{
 }
 
 /* Charts */
-
+h2{
+  font-size: 48px;
+  color: #46C2CB;
+  font-weight: 400;
+}
 .chart-container{
   display:flex;
   align-items: center;
@@ -51,10 +55,28 @@ body{
 }
 
 /*Account Summary */
-
+.account-summary{
+  margin-top: 10px;
+  border-top: 1px solid #9E9E9E;
+  border-radius: 20px;
+}
 .account-summary>div{
   padding: 20px;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, transparent 5%, #9E9E9E 5% 95%, transparent 95%) 100% 1;
+}
+.account-summary>div:last-child{
+  border-bottom: none;
+}
+.account-summary>div>span{
+  font-weight: bold;
 }
 .account-summary>div>span:nth-child(2){
   float: right;
+}
+.account-summary>div:nth-child(odd)>span:nth-child(2){
+  color: #46C2CB;
+}
+.account-summary>div:nth-child(even)>span:nth-child(2){
+  color: #FA8EB2;
 }
