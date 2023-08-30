@@ -85,9 +85,33 @@ h2{
 .slider-container{
   margin-top: 20px;
 }
+.main__glide{
+  position: relative;
+}
 .glide__slide{
-  padding: 10px;
   background: #424242;
   border-radius: 20px;
-  width: 300px;
+}
+.glide__slide p{
+  margin: 1em
+}
+.glide__arrows{
+  position: absolute;
+  width: 95%;
+  margin-left: 2.5%;
+  top: 100px;
+}
+.glide__arrows button{
+  border-radius: 100%;
+  height: 40px;
+  width: 40px;
+  border: none;
+  opacity: 80%;
+}
+.glide__arrow--right{
+  float: right;
+}
+.glide__arrow svg{
+  width: 30px;
+  height: 30px;
 }

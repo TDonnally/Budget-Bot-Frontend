@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import Glide from "@glidejs/glide";
 import "@glidejs/glide/dist/css/glide.core.min.css";
+import { FaAngleLeft ,FaAngleRight } from "react-icons/fa";
 
 
 const sliderConfiguration= {
     autoplay: 4000,
+    type: 'carousel',
+    startAt: 0,
+    perView: 1,
+    peek: 50,
+    focusAt: 'center'
   };
 
 function BudgetSuggestionCarousel({ responseData }) {
@@ -41,13 +47,13 @@ return (
                     className="glide__arrow glide__arrow--left"
                     data-glide-dir="<"
                     >
-                    prev
+                    <FaAngleLeft/>
                     </button>
                     <button
                     className="glide__arrow glide__arrow--right"
                     data-glide-dir=">"
                     >
-                    next
+                    <FaAngleRight/>
                     </button>
                 </div>
         </div>
