@@ -4,6 +4,7 @@ import { getCookie, setCookie } from "../scripts/cookies";
 import PlaidLink from "./PlaidLink";
 import NetWorthChart from "./NetWorthChart";
 import AccountSummaries from "./AccountSummaries";
+import BudgetSuggestionCarousel from "./BudgetSuggestionCarousel";
 
 function AccountView({ responseData }) {
     if (!responseData) {
@@ -23,6 +24,7 @@ function AccountView({ responseData }) {
             <div>
               <NetWorthChart data = {responseData}/>
               <AccountSummaries/>
+              <BudgetSuggestionCarousel />
               {/*
               {responseData && (
                 <div>

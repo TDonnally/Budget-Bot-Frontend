@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AccountView({ responseData }) {
+function AccountSummaries({ responseData }) {
    
     return (
         <div className = "account-summary">
@@ -29,4 +29,4 @@ function AccountView({ responseData }) {
     
   }
 
-export default AccountView
+export default AccountSummaries;
