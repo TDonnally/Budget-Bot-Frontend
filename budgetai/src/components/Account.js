@@ -5,6 +5,7 @@ import PlaidLink from "./PlaidLink";
 import NetWorthChart from "./NetWorthChart";
 import AccountSummaries from "./AccountSummaries";
 import BudgetSuggestionCarousel from "./BudgetSuggestionCarousel";
+import MobileNav from "./MobileNav"
 
 function AccountView({ responseData }) {
     if (!responseData) {
@@ -22,6 +23,7 @@ function AccountView({ responseData }) {
       console.log(responseData.needToken);
         return (
             <div>
+              <MobileNav/>
               <NetWorthChart data = {responseData}/>
               <AccountSummaries/>
               <BudgetSuggestionCarousel />
