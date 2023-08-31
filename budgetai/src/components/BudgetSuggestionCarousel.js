@@ -5,7 +5,6 @@ import { FaAngleLeft ,FaAngleRight } from "react-icons/fa";
 
 
 const sliderConfiguration= {
-    autoplay: 4000,
     type: 'carousel',
     startAt: 0,
     perView: 1,

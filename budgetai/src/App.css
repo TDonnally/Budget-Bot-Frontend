@@ -41,13 +41,13 @@ body{
   background-color: #212121;
   color: white;
 }
-
-/* Charts */
 h2{
   font-size: 48px;
   color: #46C2CB;
   font-weight: 400;
 }
+
+/* Charts */
 .chart-container{
   display:flex;
   align-items: center;
