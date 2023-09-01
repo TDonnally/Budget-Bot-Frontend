@@ -121,50 +121,82 @@ h2{
   position: fixed;
   top: 50px;
   right: 2.5%;
+}
+.mobile-nav-check{
   display:grid;
   place-items:center;
-  height:70px;
-  width: 70px;
+  height:50px;
+  width: 50px;
   background:#424242;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin:0;
-  padding:0;
   border-radius: 100%;
-  padding: 2px;
+  padding: 5px;
+  z-index: 3;
+  position: relative;
 }
-.mobile-nav-container>label{
+.mobile-nav-check>label{
   display:flex;
    flex-direction:column;
-   width:50px;
+   width:40px;
    cursor:pointer;
  }
  
- .mobile-nav-container>label span{
+ .mobile-nav-check>label span{
    background: #fff;
    border-radius:10px;
    height:7px;
-   margin: 7px 0px;
+   margin: 3px 0px;
    transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
  
  }
  
  
- .mobile-nav-container>label>span:nth-of-type(1){
+ .mobile-nav-check>label>span:nth-of-type(1){
    width:50%;
    
  }
  
- .mobile-nav-container>label>span:nth-of-type(2){
+ .mobile-nav-check>label>span:nth-of-type(2){
    width:100%;
  }
  
  
- .mobile-nav-container>label>span:nth-of-type(3){
+ .mobile-nav-check>label>span:nth-of-type(3){
    width:75%;
   
  }
- 
- 
+ .mobile-nav{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: #424242;
+  z-index:-3;
+  transition: all .4s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+ }
+ .mobile-nav svg{
+  width: 30px;
+  height: 30px;
+  margin: 2px;
+  transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+ }
+ #icons-cover{
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  background-color: #424242;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -2;
+ }
  input[type="checkbox"]{
    display:none;
  }
@@ -172,14 +204,14 @@ h2{
  
  input[type="checkbox"]:checked ~ span:nth-of-type(1){
    transform-origin:bottom;
-   transform:rotatez(45deg) translate(9px,8px)
+   transform:rotatez(45deg) translate(2px,2px)
  }
  
  
  input[type="checkbox"]:checked ~ span:nth-of-type(2){
    
    transform-origin:top;
-   transform:rotatez(-45deg) translate(-4px, 0px);
+   transform:rotatez(-45deg) translate(-2px, -3px);
  }
  
  
@@ -187,7 +219,21 @@ h2{
    
    transform-origin:bottom;
    width:50%;
-   transform: translate(19px,-11px) rotatez(45deg);
+   transform: translate(13px,-10px) rotatez(45deg);
  
  }
+ input[type="checkbox"]:checked ~ .mobile-nav{
+  transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  height: 250px;
+  z-index:-1;
+  padding-top: 10px;
+  box-shadow: 	#c2cb46 5px 5px 0px;
+}
+input[type="checkbox"]:checked ~ .mobile-nav svg{
+  transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  height: 50px;
+}
+ 
+
+ 
  
