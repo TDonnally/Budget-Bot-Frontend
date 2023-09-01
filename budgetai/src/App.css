@@ -42,9 +42,11 @@ body{
   color: white;
 }
 h2{
-  font-size: 48px;
+  color: #46C2CB;
+  font-size: 70px;
   color: #46C2CB;
   font-weight: 400;
+  margin-top: 30px;
 }
 
 /* Charts */
