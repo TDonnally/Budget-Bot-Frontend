@@ -48,6 +48,10 @@ body{
   position: fixed;
   height: 70px;
   align-items: center;
+  top: 0px;
+  background-color: #212121;
+  border-radius: 20px;
+  
 }
 .net-worth-container h2{
   color: #46C2CB;
@@ -60,6 +64,14 @@ body{
   display:flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  z-index: -1;
+  width: 100%;
+  top: 70px;
+}
+.chart-cover{
+  background-color: #212121;
+  border-radius: 20px;
 }
 
 /*Account Summary */
@@ -67,6 +79,8 @@ body{
   margin-top: 10px;
   border-top: 1px solid #9E9E9E;
   border-radius: 20px;
+  background-color: #212121;
+  margin-top: 0px;
 }
 .account-summary>div{
   padding: 20px;
@@ -91,7 +105,8 @@ body{
 
 /*Slider*/
 .slider-container{
-  margin-top: 20px;
+  padding-top: 20px;
+  background-color: #212121;
 }
 .main__glide{
   position: relative;
@@ -127,7 +142,7 @@ body{
 /*Mobile Nav*/
 .mobile-nav-container{
   position: fixed;
-  top: 50px;
+  top: 10px;
   right: 2.5%;
 }
 .mobile-nav-check{

@@ -25,9 +25,11 @@ function AccountView({ responseData }) {
             <div>
               <MobileNav/>
               <NetWorthChart data = {responseData}/>
-              <AccountSummaries/>
-              <BudgetSuggestionCarousel />
-              <BudgetSuggestionCarousel />
+              <div className="chart-cover">
+                <AccountSummaries/>
+                <BudgetSuggestionCarousel />
+                <BudgetSuggestionCarousel />
+              </div>
               {/*
               {responseData && (
                 <div>

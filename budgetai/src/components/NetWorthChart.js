@@ -4,16 +4,18 @@ import { Line } from 'react-chartjs-2';
 
 function NetWorthChart() {
     const chartRef = useRef(null);
-
+    
+    useEffect(() => {
+        const marginDistance = document.querySelector(".chart-container").offsetHeight;
+        const accountSummary = document.querySelector(".account-summary");
+        accountSummary.style.marginTop = marginDistance + 80 + "px"
+      }, []);
     
 
     function updateTitleHeight(scrollPos){{
-        const scrollDistance=document.querySelector(".chart-container").offsetHeight;
-        console.log(document.querySelector(".chart-container").offsetHeight)
-        const netWorthContainer=document.querySelector(".net-worth-container");
-        console.log(netWorthContainer.firstChild)
-        console.log((scrollPos/scrollDistance))
-        if(scrollPos>10){
+        const scrollDistance = document.querySelector(".chart-container").offsetHeight;
+        const netWorthContainer = document.querySelector(".net-worth-container");
+        if(scrollPos>1 && scrollPos<scrollDistance){
             netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
         }
     }}
