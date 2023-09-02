@@ -27,6 +27,7 @@ function AccountView({ responseData }) {
               <NetWorthChart data = {responseData}/>
               <AccountSummaries/>
               <BudgetSuggestionCarousel />
+              <BudgetSuggestionCarousel />
               {/*
               {responseData && (
                 <div>

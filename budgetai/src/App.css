@@ -41,15 +41,21 @@ body{
   background-color: #212121;
   color: white;
 }
-h2{
+
+/* Charts */
+.net-worth-container{
+  display: flex;
+  position: fixed;
+  height: 70px;
+  align-items: center;
+}
+.net-worth-container h2{
   color: #46C2CB;
   font-size: 70px;
   color: #46C2CB;
   font-weight: 400;
-  margin-top: 30px;
+  margin: 0px;
 }
-
-/* Charts */
 .chart-container{
   display:flex;
   align-items: center;

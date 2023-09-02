@@ -4,7 +4,35 @@ import { Line } from 'react-chartjs-2';
 
 function NetWorthChart() {
     const chartRef = useRef(null);
+
     
+
+    function updateTitleHeight(scrollPos){{
+        const scrollDistance=document.querySelector(".chart-container").offsetHeight;
+        console.log(document.querySelector(".chart-container").offsetHeight)
+        const netWorthContainer=document.querySelector(".net-worth-container");
+        console.log(netWorthContainer.firstChild)
+        console.log((scrollPos/scrollDistance))
+        if(scrollPos>10){
+            netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
+        }
+    }}
+
+    let ticking = false;
+    let pageScrollPosition = window.scrollY;
+
+    document.addEventListener("scroll", (event) => {
+        pageScrollPosition = window.scrollY;
+      
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            updateTitleHeight(pageScrollPosition);
+            ticking = false;
+          });
+      
+          ticking = true;
+        }
+    });
     const data = {
         labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
         datasets: [
@@ -99,7 +127,9 @@ function NetWorthChart() {
 
     return (
         <div>
-            <h2>$123,435</h2>
+            <div className = "net-worth-container">
+                <h2>$123,435</h2>
+            </div>
             <div className="chart-container">
                 <Line ref={chartRef}data={data} options={options} />
             </div>
