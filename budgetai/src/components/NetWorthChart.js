@@ -131,6 +131,7 @@ function NetWorthChart() {
         <div>
             <div className = "net-worth-container">
                 <h2>$123,435</h2>
+                <span>^up or down</span>
             </div>
             <div className="chart-container">
                 <Line ref={chartRef}data={data} options={options} />
