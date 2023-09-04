@@ -1,23 +1,29 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { useInView } from 'react-intersection-observer';
 import 'chart.js/auto'
 import { Bar } from 'react-chartjs-2';
 import { FaCaretUp } from "react-icons/fa";
 
 function SpendingBar() {
     const chartRef = useRef(null);
-    
-    useEffect(() => {
+    const [isComponentInView, setInComponentInView] = useState();
+    const { ref, inView, entry } = useInView({
+        threshold: .2,
+        triggerOnce: true
         
-      }, []);
-    
+      });
+
+    useEffect(() => {
+        setInComponentInView(inView);
+    }, [inView]);
+
     const data = {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['Groceries', 'Transportation', 'Housing', 'Entertainment', 'Healthcare'],
         datasets: [
             {
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            borderWidth: 1,
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)'],
+
             },
         ],
     };
@@ -26,26 +32,28 @@ function SpendingBar() {
         indexAxis: 'y',
         elements: {
             bar: {
-            borderWidth: 2,
             },
         },
         responsive: true,
         plugins: {
             legend: {
-            position: 'right',
+                display: false,
+                position: 'bottom',
+                labels: {
+                    usePointStyle: true, // To show individual colors for legend items
+                },
             },
             title: {
-            display: true,
-            text: 'Chart.js Horizontal Bar Chart',
+                display: false,
             },
-  },
+        },
     };
-    
 
     return (
         <div>
-            <div>
-                <Bar ref={chartRef}data={data} options={options} />
+            <div ref = {ref}>
+                <h3>Spending Breakdown</h3>
+                {isComponentInView ? <Bar ref={chartRef} data={data} options={options} /> : <p>Loading...</p>}
             </div>
         </div>
     );
