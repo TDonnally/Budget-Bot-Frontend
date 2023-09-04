@@ -16,7 +16,9 @@ function NetWorthChart() {
     function updateTitleHeight(scrollPos){{
         const scrollDistance = document.querySelector(".chart-container").offsetHeight;
         const netWorthContainer = document.querySelector(".net-worth-container");
+        const netWorthContainerBackground = document.querySelector(".net-worth-container-background");
         if(scrollPos>1 && scrollPos<scrollDistance){
+            netWorthContainerBackground.style.opacity=scrollPos/scrollDistance;
             netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
             netWorthContainer.firstChild.style.marginTop = (scrollPos/scrollDistance)*10 + "px"
             netWorthContainer.children[1].style.marginTop = (scrollPos/scrollDistance)*10 + "px"
@@ -132,11 +134,11 @@ function NetWorthChart() {
 
     return (
         <div>
+            <div className = "net-worth-container">
+                <h2>$123,435</h2>
+                <span><FaCaretUp/> $35,000</span>
+            </div>
             <div className = "net-worth-container-background">
-                <div className = "net-worth-container">
-                    <h2>$123,435</h2>
-                    <span><FaCaretUp/> $35,000</span>
-                </div>
             </div>
             <div className="chart-container">
                 <Line ref={chartRef}data={data} options={options} />
