@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 function AccountSummaries({ responseData }) {
-   
+    
+    
+
     return (
         <div className = "account-summary">
             <div>

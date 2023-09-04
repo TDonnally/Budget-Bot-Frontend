@@ -28,7 +28,6 @@ function AccountView({ responseData }) {
               <div className="chart-cover">
                 <AccountSummaries/>
                 <BudgetSuggestionCarousel />
-                <BudgetSuggestionCarousel />
               </div>
               {/*
               {responseData && (
