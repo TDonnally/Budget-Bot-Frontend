@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import 'chart.js/auto'
 import { Line } from 'react-chartjs-2';
+import { FaCaretUp } from "react-icons/fa";
 
 function NetWorthChart() {
     const chartRef = useRef(null);
@@ -8,7 +9,7 @@ function NetWorthChart() {
     useEffect(() => {
         const marginDistance = document.querySelector(".chart-container").offsetHeight;
         const accountSummary = document.querySelector(".account-summary");
-        accountSummary.style.marginTop = marginDistance + 80 + "px"
+        accountSummary.style.marginTop = marginDistance + 120 + "px"
       }, []);
     
 
@@ -17,6 +18,8 @@ function NetWorthChart() {
         const netWorthContainer = document.querySelector(".net-worth-container");
         if(scrollPos>1 && scrollPos<scrollDistance){
             netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
+            netWorthContainer.firstChild.style.marginTop = (scrollPos/scrollDistance)*10 + "px"
+            netWorthContainer.children[1].style.marginTop = (scrollPos/scrollDistance)*10 + "px"
         }
     }}
 
@@ -129,9 +132,11 @@ function NetWorthChart() {
 
     return (
         <div>
-            <div className = "net-worth-container">
-                <h2>$123,435</h2>
-                <span>^up or down</span>
+            <div className = "net-worth-container-background">
+                <div className = "net-worth-container">
+                    <h2>$123,435</h2>
+                    <span><FaCaretUp/> $35,000</span>
+                </div>
             </div>
             <div className="chart-container">
                 <Line ref={chartRef}data={data} options={options} />
