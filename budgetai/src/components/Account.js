@@ -6,6 +6,7 @@ import NetWorthChart from "./NetWorthChart";
 import AccountSummaries from "./AccountSummaries";
 import BudgetSuggestionCarousel from "./BudgetSuggestionCarousel";
 import MobileNav from "./MobileNav"
+import SpendingPie from "./SpendingPie"
 
 function AccountView({ responseData }) {
     if (!responseData) {
@@ -28,6 +29,7 @@ function AccountView({ responseData }) {
               <div className="chart-cover">
                 <AccountSummaries/>
                 <BudgetSuggestionCarousel />
+                <SpendingPie />
               </div>
               {/*
               {responseData && (

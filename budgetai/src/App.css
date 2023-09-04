@@ -44,7 +44,7 @@ body{
 
 /* Charts */
 .net-worth-container{
-  z-index: 2;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   position: fixed;
@@ -63,7 +63,9 @@ body{
   position: fixed;
   top: 0px;
   opacity: 0;
-  transition: opacity .4s
+  transition: opacity .4s;
+  backdrop-filter: blur(2px);
+  z-index: 2;
 }
 .net-worth-container span{
   display: flex;
