@@ -7,6 +7,7 @@ import AccountSummaries from "./AccountSummaries";
 import BudgetSuggestionCarousel from "./BudgetSuggestionCarousel";
 import MobileNav from "./MobileNav"
 import SpendingBar from "./SpendingBar"
+import { Link, Switch, Route } from 'react-router-dom';
 
 function AccountView({ responseData }) {
     if (!responseData) {
