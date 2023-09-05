@@ -12,7 +12,6 @@ function Home({ responseData }) {
   return (
       <div>
         <p style = {{fontSize: '0px'}}>Home</p>
-        <MobileNav/>
         <NetWorthChart data = {responseData}/>
         <div className="chart-cover">
           <AccountSummaries/>

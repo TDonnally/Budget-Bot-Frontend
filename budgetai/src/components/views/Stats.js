@@ -14,7 +14,6 @@ function Stats({ responseData }) {
     return (
         <div>
             stats
-            <MobileNav/>
             {/*
             {responseData && (
             <div>

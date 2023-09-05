@@ -5,6 +5,7 @@ import PlaidLink from "./PlaidLink";
 import Home from "./views/Home";
 import Settings from "./views/Settings";
 import Stats from "./views/Stats";
+import MobileNav from "./MobileNav";
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -27,11 +28,12 @@ function AccountView({ responseData }) {
     } else {
         console.log(responseData.needToken);
         return (
-            <div>
+            <div style={{transform:'scale(1)'}}>
+                <MobileNav/>
                 <TransitionGroup>
                     <CSSTransition
                         key={location.key}
-                        timeout={400}
+                        timeout={600}
                         classNames="page"
                     >
                         <Routes location={location}>

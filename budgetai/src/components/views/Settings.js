@@ -14,7 +14,6 @@ function Settings({ responseData }) {
     return (
         <div>
             settings
-            <MobileNav/>
             {/*
             {responseData && (
             <div>
