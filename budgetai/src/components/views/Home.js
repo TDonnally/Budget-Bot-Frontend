@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios"; 
-import { getCookie, setCookie } from "../scripts/cookies";
-import PlaidLink from "./PlaidLink";
-import Home from "./views/Home";
-import Settings from "./views/Settings";
-import Stats from "./views/Stats";
-import {Route, Routes } from 'react-router-dom'
+import { getCookie, setCookie } from "../../scripts/cookies";
+import PlaidLink from "../PlaidLink";
+import NetWorthChart from "../NetWorthChart";
+import AccountSummaries from "../AccountSummaries";
+import BudgetSuggestionCarousel from "../BudgetSuggestionCarousel";
+import MobileNav from "../MobileNav"
+import SpendingBar from "../SpendingBar"
+import { Link, Switch, Route } from 'react-router-dom';
 
-function AccountView({ responseData }) {
+function Home({ responseData }) {
     if (!responseData) {
         return <div>Loading...</div>;
       }
@@ -23,14 +25,13 @@ function AccountView({ responseData }) {
       console.log(responseData.needToken);
         return (
             <div>
-                <Routes>
-                  <Route path="home" element={<Home responseData = {responseData}/>}/>
-                  <Route path="spending" element={<Stats responseData = {responseData}/> } />
-                  <Route path="settings" element={<Settings responseData = {responseData}/> } />
-                </Routes>
-                
-              
-
+              <MobileNav/>
+              <NetWorthChart data = {responseData}/>
+              <div className="chart-cover">
+                <AccountSummaries/>
+                <BudgetSuggestionCarousel />
+                <SpendingBar />
+              </div>
               {/*
               {responseData && (
                 <div>
@@ -45,4 +46,4 @@ function AccountView({ responseData }) {
     
   }
 
-export default AccountView
+export default Home;

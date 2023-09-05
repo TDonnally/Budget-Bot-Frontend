@@ -27,7 +27,7 @@ function App() {
         <Routes>
             <Route path="/signup" element={<SignUpForm/>}/>
             <Route path="/signin" element={<SignInForm/> } />
-            <Route path="/account" element={
+            <Route path="/account/*" element={
               <Protected token={getCookie("token")}>
                 <AccountView/>
               </Protected>

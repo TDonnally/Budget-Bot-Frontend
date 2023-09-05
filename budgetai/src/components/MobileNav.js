@@ -16,13 +16,13 @@ function MobileNav() {
                     
                     <div id = "icons-cover"></div>
                     <div className="mobile-nav">
-                        <Link to="/account">
+                        <Link to="/account/home">
                             <FaHouse/>
                         </Link>
-                        <Link to="/account#spending">
+                        <Link to="/account/spending">
                             <FaChartSimple/>
                         </Link>
-                        <Link to="/account#settings">
+                        <Link to="/account/settings">
                             <FaUser/>
                         </Link>
                         </div>
