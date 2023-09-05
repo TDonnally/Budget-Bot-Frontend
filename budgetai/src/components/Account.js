@@ -28,13 +28,14 @@ function AccountView({ responseData }) {
     } else {
         console.log(responseData.needToken);
         return (
-            <div style={{transform:'scale(1)'}}>
+            <div>
                 <MobileNav/>
                 <TransitionGroup>
                     <CSSTransition
                         key={location.key}
-                        timeout={600}
+                        timeout={400}
                         classNames="page"
+                        unmountOnExit
                     >
                         <Routes location={location}>
                             <Route path="home" element={<Home responseData={responseData}/>} />

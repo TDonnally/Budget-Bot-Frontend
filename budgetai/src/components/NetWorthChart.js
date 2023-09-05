@@ -14,14 +14,17 @@ function NetWorthChart() {
     
 
     function updateTitleHeight(scrollPos){{
-        const scrollDistance = document.querySelector(".chart-container").offsetHeight;
-        const netWorthContainer = document.querySelector(".net-worth-container");
-        const netWorthContainerBackground = document.querySelector(".net-worth-container-background");
-        if(scrollPos>1 && scrollPos<scrollDistance){
-            netWorthContainerBackground.style.opacity=scrollPos/scrollDistance;
-            netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
-            netWorthContainer.firstChild.style.marginTop = (scrollPos/scrollDistance)*10 + "px"
-            netWorthContainer.children[1].style.marginTop = (scrollPos/scrollDistance)*10 + "px"
+        //conditional to prevnet cannot set property error
+        if(document.querySelector(".chart-container") != null){
+            const scrollDistance = document.querySelector(".chart-container").offsetHeight;
+            const netWorthContainer = document.querySelector(".net-worth-container");
+            const netWorthContainerBackground = document.querySelector(".net-worth-container-background");
+            if(scrollPos>1 && scrollPos<scrollDistance){
+                netWorthContainerBackground.style.opacity=scrollPos/scrollDistance;
+                netWorthContainer.firstChild.style.fontSize = 70-(scrollPos/scrollDistance)*30 + "px"
+                netWorthContainer.firstChild.style.marginTop = (scrollPos/scrollDistance)*10 + "px"
+                netWorthContainer.children[1].style.marginTop = (scrollPos/scrollDistance)*10 + "px"
+            }
         }
     }}
 
