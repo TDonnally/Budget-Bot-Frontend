@@ -10,19 +10,12 @@ import SpendingBar from "../SpendingBar"
 import { Link, Switch, Route } from 'react-router-dom';
 
 function Stats({ responseData }) {
-    if (!responseData) {
+   
+      if (!responseData) {
         return <div>Loading...</div>;
       }
-    if (responseData.needToken){
-        console.log(responseData);
-        return (
-            <div>
-              <PlaidLink user = {responseData.user.email}/>
-            </div>
-          );
-    }
+
     else{
-      console.log(responseData.needToken);
         return (
             <div>
                 stats

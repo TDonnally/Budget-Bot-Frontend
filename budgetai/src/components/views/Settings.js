@@ -13,16 +13,9 @@ function Settings({ responseData }) {
     if (!responseData) {
         return <div>Loading...</div>;
       }
-    if (responseData.needToken){
-        console.log(responseData);
-        return (
-            <div>
-              <PlaidLink user = {responseData.user.email}/>
-            </div>
-          );
-    }
+
     else{
-      console.log(responseData.needToken);
+      
         return (
             <div>
                 settings
