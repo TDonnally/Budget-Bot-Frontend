@@ -1,19 +1,13 @@
 import React, { useState } from "react";
-import axios from "axios"; 
-import { getCookie, setCookie } from "../../scripts/cookies";
-import PlaidLink from "../PlaidLink";
-import NetWorthChart from "../NetWorthChart";
-import AccountSummaries from "../AccountSummaries";
-import BudgetSuggestionCarousel from "../BudgetSuggestionCarousel";
-import MobileNav from "../MobileNav"
-import SpendingBar from "../SpendingBar"
-import { Link, Switch, Route } from 'react-router-dom';
+import StatsTitle from "../StatsTitle";
 import DetailedSpending from "../DetailedSpending";
 
 function Stats({ responseData }) {
    
     return (
         <div>
+            <p style = {{fontSize: '0px'}}>Stats</p>
+            <StatsTitle />
             <DetailedSpending />
             {/*
             {responseData && (
