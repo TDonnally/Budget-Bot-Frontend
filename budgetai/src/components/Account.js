@@ -1,48 +1,49 @@
-import React, { useState } from "react";
-import axios from "axios"; 
+import React, { useState, useRef } from "react";
+import axios from "axios";
 import { getCookie, setCookie } from "../scripts/cookies";
 import PlaidLink from "./PlaidLink";
 import Home from "./views/Home";
 import Settings from "./views/Settings";
 import Stats from "./views/Stats";
-import {Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 function AccountView({ responseData }) {
+    const location = useLocation();
+    const [viewLoaded, setViewLoaded] = useState(false);
+    const nodeRef = useRef(null);
+
     if (!responseData) {
         return <div>Loading...</div>;
-      }
-    if (responseData.needToken){
+    }
+
+    if (responseData.needToken) {
         console.log(responseData);
         return (
             <div>
-              <PlaidLink user = {responseData.user.email}/>
+                <PlaidLink user={responseData.user.email} />
             </div>
-          );
-    }
-    else{
-      console.log(responseData.needToken);
+        );
+    } else {
+        console.log(responseData.needToken);
         return (
             <div>
-                <Routes>
-                  <Route path="home" element={<Home responseData = {responseData}/>}/>
-                  <Route path="spending" element={<Stats responseData = {responseData}/> } />
-                  <Route path="settings" element={<Settings responseData = {responseData}/> } />
-                </Routes>
-                
-              
-
-              {/*
-              {responseData && (
-                <div>
-                  <h3>Response Data:</h3>
-                  <pre>{JSON.stringify(responseData, null, 2)}</pre>
-                </div>
-              )}
-              */}
+                <TransitionGroup>
+                    <CSSTransition
+                        key={location.key}
+                        timeout={400}
+                        classNames="page"
+                    >
+                        <Routes location={location}>
+                            <Route path="home" element={<Home responseData={responseData}/>} />
+                            <Route path="spending" element={<Stats responseData={responseData} />} />
+                            <Route path="settings" element={<Settings responseData={responseData} />} />
+                        </Routes>
+                    </CSSTransition>
+                </TransitionGroup>
             </div>
-          );
+        );
     }
-    
-  }
+}
 
-export default AccountView
+export default AccountView;

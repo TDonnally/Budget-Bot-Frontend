@@ -74,6 +74,8 @@ body{
 .net-worth-container h2{
   color: white;
   font-size: 70px;
+  line-height: 1.2em;
+  letter-spacing: -1.7px;
   font-weight: 400;
   margin: 0px;
 }
@@ -181,6 +183,8 @@ body{
    flex-direction:column;
    width:40px;
    cursor:pointer;
+   padding-bottom: 20px;
+   padding-top: 5px;
  }
  
  .mobile-nav-check>label span{
@@ -280,6 +284,29 @@ body{
 input[type="checkbox"]:checked ~ .mobile-nav svg{
   transition: all .4s cubic-bezier(0.34, 1.56, 0.64, 1);
   height: 50px;
+}
+
+/*page-animations*/
+.page-enter {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity .4s, transform .4s;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity .4s, transform .4s;
 }
  
 

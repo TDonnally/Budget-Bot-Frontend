@@ -11,33 +11,21 @@ import { Link, Switch, Route } from 'react-router-dom';
 
 function Stats({ responseData }) {
    
-      if (!responseData) {
-        return <div>Loading...</div>;
-      }
-
-    else{
-        return (
+    return (
+        <div>
+            stats
+            <MobileNav/>
+            {/*
+            {responseData && (
             <div>
-                stats
-              <MobileNav/>
-              <NetWorthChart data = {responseData}/>
-              <div className="chart-cover">
-                <AccountSummaries/>
-                <BudgetSuggestionCarousel />
-                <SpendingBar />
-              </div>
-              {/*
-              {responseData && (
-                <div>
-                  <h3>Response Data:</h3>
-                  <pre>{JSON.stringify(responseData, null, 2)}</pre>
-                </div>
-              )}
-              */}
+                <h3>Response Data:</h3>
+                <pre>{JSON.stringify(responseData, null, 2)}</pre>
             </div>
-          );
-    }
-    
-  }
+            )}
+            */}
+        </div>
+        );
+}
+
 
 export default Stats;
