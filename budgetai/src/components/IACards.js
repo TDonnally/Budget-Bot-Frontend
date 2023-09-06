@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function IACards({ responseData }) {
     return (
         <div>
-            <div className = "spending-summary">
+            <div className = "stats-summary-cards">
                 <h3>Spending Last Month</h3>
                 <p>Goal: $2,500</p>
                 <p>Actual: $2,211</p>

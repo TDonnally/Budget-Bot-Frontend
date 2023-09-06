@@ -6,7 +6,7 @@ import IACards from "../IACards";
 function Stats({ responseData }) {
    
     return (
-        <div>
+        <div className = "stats-container">
             <p style = {{fontSize: '0px'}}>Stats</p>
             <StatsTitle />
             <SpendingProgress />
