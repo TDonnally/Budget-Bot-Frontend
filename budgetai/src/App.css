@@ -139,8 +139,9 @@ h2{
   position: relative;
 }
 .glide__slide{
-  background: #424242;
   border-radius: 20px;
+  border: 3px solid #424242;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .glide__slide p{
   margin: 1em
@@ -319,6 +320,8 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 }
 
 /*Stats Page*/
+
+/*Title*/
 .stats-title{
   z-index: 3;
   display: flex;
@@ -343,8 +346,33 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   backdrop-filter: blur(2px);
   z-index: 1;
 }
+/*Spending Summary Hero Component*/
 .spending-summary{
-  margin-top: 70px;
+  position: relative;
+  width: 95%;
+  margin: 100px auto 0px auto;
+  border-radius: 20px;
+  border: 3px solid #424242;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.spending-summary>*{
+  padding: 0px 10px;
+}
+.progress-bar{
+  margin: 0 8px;
+  height:22px;
+  border-radius: 20px;
+  color:  #424242;
+  border:2px solid;
+  position: relative;
+}
+.progress-bar::before{
+  content:"";
+  position: absolute;
+  margin:2px;
+  inset:0 23% 0 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 10% 20%, #FA8EB2 0%, rgb(246, 98, 128) 98.3%);
 }
  
 

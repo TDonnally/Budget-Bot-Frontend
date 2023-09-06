@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import StatsTitle from "../StatsTitle";
-import DetailedSpending from "../DetailedSpending";
+import SpendingProgress from "../SpendingProgress";
+import IACards from "../IACards";
 
 function Stats({ responseData }) {
    
@@ -8,7 +9,8 @@ function Stats({ responseData }) {
         <div>
             <p style = {{fontSize: '0px'}}>Stats</p>
             <StatsTitle />
-            <DetailedSpending />
+            <SpendingProgress />
+            <IACards />
             {/*
             {responseData && (
             <div>
