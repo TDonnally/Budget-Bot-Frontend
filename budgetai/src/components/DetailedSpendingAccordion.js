@@ -42,7 +42,16 @@ function DetailedSpendingAccordion({ responseData }) {
     };
     return (
         <div className = "spending-accordion-container">
-            <div className = "stats-summary-cards"> 
+            <h3>Spending by Category</h3>
+            <div className = "stats-summary-cards">
+                <div className="accordion-card-header">
+                    <span>Entertainment</span>
+                    <div>
+                        <span>$232</span>
+                        <FaCaretUp />
+                    </div>
+                </div>
+                
             </div>
             <div className = "stats-summary-cards">
             </div>

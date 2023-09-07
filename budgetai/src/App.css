@@ -410,10 +410,35 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 /*Detailed Spending Accordion*/
 
 .spending-accordion-container>.stats-summary-cards{
-  padding:20px 0px;
+  padding:10px 0px;
   width: 95%;
-
 }
+.spending-accordion-container>*{
+  width: 95%;
+  margin: 10px auto;
+}
+.spending-accordion-container span{
+  font-size: 16px;
+}
+.spending-accordion-container svg{
+  fill: #424242;
+  width: 24px;
+  height: auto;
+  transition: all .4s;
+}
+.spending-accordion-container>.stats-summary-cards>span{
+  font-weight: bold;
+}
+.accordion-card-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.accordion-card-header>div{
+  display: flex;
+  align-items: center;
+}
+
 
  
  
