@@ -378,6 +378,35 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   border-radius: inherit;
   background: radial-gradient(circle at 10% 20%, #FA8EB2 0%, rgb(246, 98, 128) 98.3%);
 }
+/*Income Spending cards*/
+.ia-cards-container{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 0 auto;
+  gap: 5px;
+}
+.ia-cards-container>.stats-summary-cards>span{
+  font-size: 12px;
+  margin-top: -15px;
+}
+.ia-cards-container>.stats-summary-cards>div{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.ia-cards-container>.stats-summary-cards>.ia-chart-container{
+  width: 150px;
+  
+  
+}
+.ia-cards-container>.stats-summary-cards>div>span{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
  
 
  
