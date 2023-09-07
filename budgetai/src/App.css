@@ -49,6 +49,9 @@ h2{
   font-weight: 400;
   margin: 0px;
 }
+h3{
+  font-size: 24px;
+}
 
 /* Charts */
 .net-worth-container{
@@ -139,9 +142,18 @@ h2{
   position: relative;
 }
 .glide__slide{
+  position: relative;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+.glide__slide__border{
+  position: absolute;
+  top:0px;
+  left:0px;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
   border-radius: 20px;
   border: 3px solid #424242;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .glide__slide p{
   margin: 1em
@@ -299,28 +311,28 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 /*page-animations*/
 .page-enter {
   opacity: 0;
-  transform: translateY(-10vh);
 }
 
 .page-enter-active {
   opacity: 1;
-  transform: translateY(0vh);
   transition: opacity .4s, transform .4s;
 }
 
 .page-exit {
-  opacity: 0;
-  transform: translateY(0vh);
+  display: none;
 }
 
-.page-exit-active {
+/*.page-exit-active {
   opacity: 0;
   transform: translateY(10vh);
   transition: opacity .4s, transform .4s;
-}
+}*/
 
 /*Stats Page*/
-
+.stats-container>*{
+  width: 95%;
+  margin: 0 auto;
+}
 /*Title*/
 .stats-title{
   z-index: 3;
@@ -350,14 +362,13 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 /*Spending Summary Hero Component*/
 .stats-summary-cards{
   position: relative;
-  width: 95%;
-  margin: 0px auto 10px auto;
   border-radius: 20px;
   border: 3px solid #424242;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .top-card{
   margin-top: 100px;
+  margin-bottom: 10px;
 }
 .stats-summary-cards>*{
   padding: 0px 10px;
@@ -384,7 +395,7 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   flex-direction: row;
   width: 95%;
   margin: 0 auto;
-  gap: 5px;
+  justify-content: space-between;
 }
 .ia-cards-container>.stats-summary-cards>span{
   font-size: 12px;
@@ -399,6 +410,7 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 }
 .ia-cards-container>.stats-summary-cards>.ia-chart-container{
   width: 150px;
+  height: auto;
   
   
 }
@@ -411,10 +423,8 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 
 .spending-accordion-container>.stats-summary-cards{
   padding:10px 0px;
-  width: 95%;
 }
 .spending-accordion-container>*{
-  width: 95%;
   margin: 10px auto;
 }
 .spending-accordion-container .accordion-card-header span{
@@ -497,5 +507,26 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   font-size: 12px;
 }
 
+/*Recurring Purchases*/
+.recurring-purchases{
+  margin-top: 10px;
+  border-radius: 20px;
+  background-color: #212121;
+  margin-top: 0px;
+}
+.recurring-purchases>div{
+  padding: 20px 0px;
+  border-bottom: 1px solid;
+  border-image: linear-gradient(to right, transparent 5%, #9E9E9E 5% 95%, transparent 95%) 100% 1;
+}
+.recurring-purchases>div:last-child{
+  border-bottom: none;
+}
+.recurring-purchases>div:first-child{
+  font-weight: bold;
+}
+.recurring-purchases>div>span:nth-child(2){
+  float: right;
+}
  
  

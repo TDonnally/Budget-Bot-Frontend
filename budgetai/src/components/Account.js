@@ -33,7 +33,7 @@ function AccountView({ responseData }) {
                 <TransitionGroup>
                     <CSSTransition
                         key={location.key}
-                        timeout={400}
+                        timeout={10000}
                         classNames="page"
                         unmountOnExit
                     >
