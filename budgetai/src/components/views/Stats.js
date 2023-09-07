@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import StatsTitle from "../StatsTitle";
 import SpendingProgress from "../SpendingProgress";
 import IACards from "../IACards";
+import DetailedSpendingAccordion from "../DetailedSpendingAccordion"
 
 function Stats({ responseData }) {
    
@@ -11,6 +12,7 @@ function Stats({ responseData }) {
             <StatsTitle />
             <SpendingProgress />
             <IACards />
+            <DetailedSpendingAccordion />
             {/*
             {responseData && (
             <div>

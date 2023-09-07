@@ -3,7 +3,7 @@ import 'chart.js/auto'
 import { Line } from 'react-chartjs-2';
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6"
 
-function IACards({ responseData }) {
+function DetailedSpendingAccordion({ responseData }) {
     const data = {
         labels: ['January', 'February', 'March', 'April', 'May'],
         datasets: [
@@ -41,27 +41,18 @@ function IACards({ responseData }) {
           },
     };
     return (
-        <div className = "ia-cards-container">
-            <div className = "stats-summary-cards">
-                <div>
-                    <h2>$4,200</h2>
-                    <span><FaCaretUp/>$543</span>
-                </div>
-                <span>Income Last Month</span>
-                <div className = "ia-chart-container">
-                    <Line data={data} options={options} />
-                </div>
+        <div className = "spending-accordion-container">
+            <div className = "stats-summary-cards"> 
             </div>
             <div className = "stats-summary-cards">
-                <div>
-                    <h2>$2,211</h2>
-                    <span><FaCaretDown/>$274</span>
-                </div>
-                <span>Spending Last Month</span>
-                <div className = "ia-chart-container">
-                    <Line data={data} options={options} />
-                </div>
-                
+            </div>
+            <div className = "stats-summary-cards"> 
+            </div>
+            <div className = "stats-summary-cards">
+            </div>
+            <div className = "stats-summary-cards"> 
+            </div>
+            <div className = "stats-summary-cards">
             </div>
         </div>
         
@@ -69,4 +60,4 @@ function IACards({ responseData }) {
     
   }
 
-export default IACards;
+export default DetailedSpendingAccordion;

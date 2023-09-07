@@ -407,7 +407,13 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   flex-direction: row;
   align-items: center;
 }
- 
+/*Detailed Spending Accordion*/
+
+.spending-accordion-container>.stats-summary-cards{
+  padding:20px 0px;
+  width: 95%;
+
+}
 
  
  
