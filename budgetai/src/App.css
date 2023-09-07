@@ -417,14 +417,22 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   width: 95%;
   margin: 10px auto;
 }
-.spending-accordion-container span{
+.spending-accordion-container .accordion-card-header span{
   font-size: 16px;
+  transition: all .4s;
+  opacity:1;
+}
+.active .accordion-card-header div>span{
+  opacity:0;
 }
 .spending-accordion-container svg{
   fill: #424242;
   width: 24px;
   height: auto;
   transition: all .4s;
+}
+.active .accordion-card-header svg{
+  transform:rotate(180deg);
 }
 .spending-accordion-container>.stats-summary-cards>span{
   font-weight: bold;
@@ -438,7 +446,56 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   display: flex;
   align-items: center;
 }
-
+.accordion-card-body{
+  transition: all .4s;
+  height: 0px;
+  overflow: hidden;
+}
+.accordion-chart-container{
+  width: 50% !important;
+}
+.active>.accordion-card-body{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  height: 200px;
+  
+}
+.accordion-body-head{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+.accordion-body-head>h2{
+  font-size: 60px;
+  font-weight: bold;
+}
+.accordion-body-head span{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.accordion-body-head span>svg{
+    width: 100%;
+    height: auto;
+    fill: white;
+}
+.accordion-card-body>div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 48%;
+}
+.accordion-body-sub{
+  width: 48%;
+  text-align: center
+}
+.accordion-body-sub>span{
+  opacity: 67%;
+  font-size: 12px;
+}
 
  
  
