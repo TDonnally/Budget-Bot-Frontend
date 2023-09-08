@@ -1,64 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios"; 
 import { getCookie, setCookie } from "../../scripts/cookies";
 import PlaidLink from "../PlaidLink";
-import NetWorthChart from "../NetWorthChart";
-import AccountSummaries from "../AccountSummaries";
-import BudgetSuggestionCarousel from "../BudgetSuggestionCarousel";
-import MobileNav from "../MobileNav"
-import SpendingBar from "../SpendingBar"
-import { Link, Route, Routes, useLocation } from 'react-router-dom'
-import { TransitionGroup, CSSTransition, SwitchTransition } from 'react-transition-group';
 
 function Settings({ responseData, parentLocation }) {
-    const location = useLocation();
-    console.log("Child: " ,location)
-    return (
-        <div>
-            settings
-            <div>
-                <Link to="/account/settings/edit">
-                    Edit Account Details
-                </Link>
-                <Link to="/account/settings/budget">
-                    Edit Budget Allocation
-                </Link>
-                <Link to="/account/settings/institutions">
-                    Institution Info
-                </Link>
-                <Link to="/account/settings/payment">
-                    Payment Info
-                </Link>
-            </div>
-            <div>
-                <SwitchTransition>
-                        <CSSTransition
-                            key={location.key}
-                            timeout={400}
-                            classNames="page"
-                            unmountOnExit
-                        >
-                            <Routes key = {location.key} location={ location }>
-                                <Route path="edit" element={<AccountSummaries/>} />
-                                <Route path="budget" element={<SpendingBar />} />
-                                <Route path="institutions" element={<AccountSummaries/>} />
-                                <Route path="payment" element={<SpendingBar />} />
-                            </Routes>
-                        </CSSTransition>
-                    </SwitchTransition>
-            </div>
-            
-            {/*
-            {responseData && (
-            <div>
-                <h3>Response Data:</h3>
-                <pre>{JSON.stringify(responseData, null, 2)}</pre>
-            </div>
-            )}
-            */}
-        </div>
-        );
+  const [activeButton, setActiveButton] = useState(null);
+
+  useEffect(() => {
+    // Add click event listeners to all option elements
+    const optionButtons = document.querySelectorAll('.option-button');
+    optionButtons.forEach(function (button) {
+      button.addEventListener('click', handleOptionClick);
+    });
+  }, []);
+
+  // Function to handle the click event when an option is selected
+  function handleOptionClick(event) {
+    const selectedOption = event.target;
+    const show = selectedOption.dataset.show;
+
+    // Remove the 'hide' class from the element to show
+    const showElement = document.querySelector(show);
+    if (showElement) {
+      showElement.classList.remove('hide');
+    }
+
+    // Add the 'hide' class to all other content divs
+    const allContentDivs = document.querySelectorAll('.my-info-1 > div');
+    allContentDivs.forEach(function (div) {
+      if (div !== showElement) {
+        div.classList.add('hide');
+      }
+    });
+
+    // Update the active button
+    setActiveButton(selectedOption);
+
+    // Remove the 'selected' class from all other buttons
+    const optionButtons = document.querySelectorAll('.option-button');
+    optionButtons.forEach(function (button) {
+      if (button !== selectedOption) {
+        button.classList.remove('selected');
+      }
+    });
+  }
+
+  return (
+    <div>
+      <div className="options">
+        <div className={`option-button${activeButton === 'Account' ? ' selected' : ''}`} data-show=".account">Account Details</div>
+        <div className={`option-button${activeButton === 'institutions' ? ' selected' : ''}`} data-show=".institutions">Institutions</div>
+        <div className={`option-button${activeButton === 'Payment' ? ' selected' : ''}`} data-show=".payment">Payment Info</div>
+        <div className={`option-button${activeButton === 'Budget' ? ' selected' : ''}`} data-show=".budget">Budget Allocation</div>
+      </div>
+
+      <div className="my-info-1">
+        <div className={`account`}>Account</div>
+        <div className={`institutions hide`}>Institutions</div>
+        <div className={`payment hide`}>Payment</div>
+        <div className={`budget hide`}>Budget</div>
+      </div>
+    </div>
+  );
 }
-    
 
 export default Settings;

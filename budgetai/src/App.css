@@ -527,5 +527,10 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
 .recurring-purchases>div>span:nth-child(2){
   float: right;
 }
+
+/*Settings*/
+.hide {
+  display: none;
+}
  
  
