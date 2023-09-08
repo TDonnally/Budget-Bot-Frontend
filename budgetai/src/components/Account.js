@@ -11,8 +11,10 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 function AccountView({ responseData }) {
     const location = useLocation();
-    const [viewLoaded, setViewLoaded] = useState(false);
-    const nodeRef = useRef(null);
+    const locationArr = location.pathname?.split("/") ?? [];
+    console.log(location);
+    
+    const isExactMatch =  ['/account/settings', '/account/home', '/account/spending'].includes(location.pathname);
 
     if (!responseData) {
         return <div>Loading...</div>;
@@ -31,18 +33,28 @@ function AccountView({ responseData }) {
             <div>
                 <MobileNav/>
                 <TransitionGroup>
+                {isExactMatch && (
                     <CSSTransition
                         key={location.key}
-                        timeout={10000}
+                        timeout={400}
                         classNames="page"
                         unmountOnExit
                     >
-                        <Routes location={location}>
-                            <Route path="home" element={<Home responseData={responseData}/>} />
+                        <Routes location={location} key={locationArr[2]}>
+                            <Route path="home" element={<Home responseData={responseData} />} />
                             <Route path="spending" element={<Stats responseData={responseData} />} />
-                            <Route path="settings" element={<Settings responseData={responseData} />} />
+                            <Route path="settings/*" element={<Settings responseData={responseData} parentLocation={location} />} />
                         </Routes>
                     </CSSTransition>
+                )}
+                {!isExactMatch && (
+                        <Routes location={location} key={locationArr[2]}>
+                            <Route path="home" element={<Home responseData={responseData} />} />
+                            <Route path="spending" element={<Stats responseData={responseData} />} />
+                            <Route path="settings/*" element={<Settings responseData={responseData} parentLocation={location} />} />
+                        </Routes>
+                )}
+                
                 </TransitionGroup>
             </div>
         );

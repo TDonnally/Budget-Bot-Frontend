@@ -3,8 +3,8 @@ import 'chart.js/auto'
 import { Bar } from 'react-chartjs-2';
 import { FaCaretDown, FaCaretUp } from "react-icons/fa6"
 
-function DetailedSpendingAccordion({ responseData }) {
-    const [isCardActive, setIsCardActive] = useState(false); // State to track card active state
+function DetailedSpendingAccordion({ responseData, openOnRender }) {
+    const [isCardActive, setIsCardActive] = useState(openOnRender); // State to track card active state
 
     const data = {
         labels: ['January', 'February', 'March', 'April', 'May'],
@@ -72,11 +72,11 @@ function DetailedSpendingAccordion({ responseData }) {
                             <span><FaCaretDown/>$274</span>
                         </div>
                         <div className = "accordion-body-sub">
-                            <h2>$102</h2>
+                            <h3>$102</h3>
                             <span>Average Spending</span>
                         </div>
                         <div className = "accordion-body-sub">
-                            <h2>12%</h2>
+                            <h3>12%</h3>
                             <span>of monthly spending</span>
                         </div>
                     </div> 
