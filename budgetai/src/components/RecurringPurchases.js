@@ -5,7 +5,7 @@ function RecurringPurchases({ responseData }) {
     
 
     return (
-        <div>
+        <>
             <h3>Recurring Purchases</h3>
             <div className = "recurring-purchases">
                 <div>
@@ -33,7 +33,7 @@ function RecurringPurchases({ responseData }) {
                     <span>$4.99</span>
                 </div>
             </div>
-        </div>
+        </>
         
     );
     

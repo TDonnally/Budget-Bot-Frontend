@@ -136,7 +136,7 @@ function NetWorthChart() {
     
 
     return (
-        <div>
+        <>
             <div className = "net-worth-container">
                 <h2>$123,435</h2>
                 <span><FaCaretUp/> $35,000</span>
@@ -146,7 +146,7 @@ function NetWorthChart() {
             <div className="chart-container">
                 <Line ref={chartRef}data={data} options={options} />
             </div>
-        </div>
+        </>
     );
 }
 

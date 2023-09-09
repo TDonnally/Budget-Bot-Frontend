@@ -69,12 +69,12 @@ function SpendingBar() {
     };
 
     return (
-        <div>
+        <>
             <div ref = {ref}>
                 <h3>Spending Breakdown</h3>
                 {isComponentInView ? <Bar ref={chartRef} data={data} options={options} /> : <p>Loading...</p>}
             </div>
-        </div>
+        </>
     );
 }
 
