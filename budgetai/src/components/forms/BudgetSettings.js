@@ -36,29 +36,32 @@ function BudgetSettings() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-        <label>
-            Email Address:
-            <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-            />
-        </label>
-        <br />
-        <label>
-            Password:
-            <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-            />
-        </label>
-        <br />
-        <button type="submit">Sign In</button>
-        </form>
+        <>
+            <h3>Adjust Budget Allocation</h3>
+            <form onSubmit={handleSubmit}>
+            <label>
+                Email Address:
+                <input
+                type="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+                />
+            </label>
+            <br />
+            <label>
+                Password:
+                <input
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+                required
+                />
+            </label>
+            <br />
+            <button type="submit">Sign In</button>
+            </form>
+        </>
     );
 }
 

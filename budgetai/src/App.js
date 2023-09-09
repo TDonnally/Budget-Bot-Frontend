@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import SignUpForm from './components/SignUpForm.js'
+import SignUpForm from './components/forms/SignUpForm.js'
 import SignInForm from './components/forms/SignInForm.js'
 import AccountView from './components/views/Account';
 import Protected from './scripts/WithAuth.js';

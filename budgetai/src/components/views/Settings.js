@@ -4,6 +4,10 @@ import { getCookie, setCookie } from "../../scripts/cookies";
 import PlaidLink from "../PlaidLink";
 import { FaUserPen, FaBuildingColumns, FaRegCreditCard, FaMoneyBills } from "react-icons/fa6";
 import TitleNav from "../TitleNav";
+import AccountSettings from "../forms/AccountSettings";
+import InstitutionSettings from "../forms/InstitutionSettings";
+import PaymentSettings from "../forms/PaymentSettings";
+import BudgetSettings from "../forms/BudgetSettings";
 
 function Settings({ responseData, parentLocation }) {
     const [activeButton, setActiveButton] = useState('.account');
@@ -85,16 +89,16 @@ function Settings({ responseData, parentLocation }) {
 
             <div className="option">
                 <div className={`account hide`}>
-                    <span>Account</span>
+                    <AccountSettings />
                 </div>
                 <div className={`institutions hide`}>
-                    <span>Institutions</span>
+                    <InstitutionSettings />
                 </div>
                 <div className={`payment hide`}>
-                    <span>Payment</span>
+                    <PaymentSettings />
                 </div>
                 <div className={`budget hide`}>
-                    <span>Budget</span>
+                    <BudgetSettings />
                 </div>
             </div>
         </div>     

@@ -5,7 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { getCookie, setCookie } from "../../scripts/cookies";
 
 function AccountSettings() {
-    const navigate = useNavigate();
+    /*const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -33,32 +33,35 @@ function AccountSettings() {
         const formData = { email, password};
         sendFormData(formData);
         console.log("Form submitted!");
-    };
+    };*/
 
     return (
-        <form onSubmit={handleSubmit}>
-        <label>
-            Email Address:
-            <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            required
-            />
-        </label>
-        <br />
-        <label>
-            Password:
-            <input
-            type="password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-            required
-            />
-        </label>
-        <br />
-        <button type="submit">Sign In</button>
-        </form>
+        <>
+            <h3>Edit Account Details</h3>
+            <form /*onSubmit={handleSubmit}*/>
+            <label>
+                Email Address:
+                <input
+                type="email"
+                //value={email}
+                //onChange={(event) => setEmail(event.target.value)}
+                required
+                />
+            </label>
+            <br />
+            <label>
+                Password:
+                <input
+                type="password"
+                //value={password}
+                //onChange={(event) => setPassword(event.target.value)}
+                required
+                />
+            </label>
+            <br />
+            <button type="submit">Sign In</button>
+            </form>
+        </>
     );
 }
 
