@@ -3,6 +3,7 @@ import axios from "axios";
 import { getCookie, setCookie } from "../../scripts/cookies";
 import PlaidLink from "../PlaidLink";
 import { FaUserPen, FaBuildingColumns, FaRegCreditCard, FaMoneyBills } from "react-icons/fa6";
+import TitleNav from "../TitleNav";
 
 function Settings({ responseData, parentLocation }) {
     const [activeButton, setActiveButton] = useState('.account');
@@ -60,7 +61,8 @@ function Settings({ responseData, parentLocation }) {
 
   return (
     <div>
-        <h2>Settings</h2>
+        <p style = {{fontSize: '0px'}}>Stats</p>
+        <TitleNav statsTitle='Settings' />
         <div className="settings-control-container">
             <div className="options">
                 <div className={`option-button${activeButton === '.account' ? ' selected' : ''}`} data-show=".account">

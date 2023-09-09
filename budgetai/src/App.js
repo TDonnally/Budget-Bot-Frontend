@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import SignUpForm from './components/SignUpForm.js'
 import SignInForm from './components/SignInForm.js'
-import AccountView from './components/Account';
+import AccountView from './components/views/Account';
 import Protected from './scripts/WithAuth.js';
 import React, { useState, useEffect } from "react";
 import {BrowserRouter,Route,Routes} from "react-router-dom";

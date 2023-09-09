@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
-import { getCookie, setCookie } from "../scripts/cookies";
-import PlaidLink from "./PlaidLink";
-import Home from "./views/Home";
-import Settings from "./views/Settings";
-import Stats from "./views/Stats";
-import MobileNav from "./MobileNav";
+import { getCookie, setCookie } from "../../scripts/cookies";
+import PlaidLink from "../PlaidLink";
+import Home from "./Home";
+import Settings from "./Settings";
+import Stats from "./Stats";
+import MobileNav from "../MobileNav";
 import { Route, Routes, useLocation, BrowserRouter } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import StatsTitle from "../StatsTitle";
+import TitleNav from "../TitleNav";
 import SpendingProgress from "../SpendingProgress";
 import IACards from "../IACards";
 import AccordionContainer from "../AccordionContainer";
@@ -11,7 +11,7 @@ function Stats({ responseData }) {
     return (
         <div className = "stats-container">
             <p style = {{fontSize: '0px'}}>Stats</p>
-            <StatsTitle />
+            <TitleNav statsTitle='Stats'/>
             <SpendingProgress />
             <IACards />
             <AccordionContainer />

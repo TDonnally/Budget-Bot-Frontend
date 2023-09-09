@@ -333,6 +333,9 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   width: 95%;
   margin: 0 auto;
 }
+.stats-container>div:first-of-type{
+  width: 100%;
+}
 /*Title*/
 .stats-title{
   z-index: 3;

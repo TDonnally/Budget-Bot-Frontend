@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 
-function StatsTitle() {
-   
+function TitleNav(props) {
     return (
         <div>
             <div className = "stats-title">
-                <h2>Data</h2>
+                <h2>{ props.statsTitle }</h2>
             </div>
             <div className="stats-title-background"></div>
         </div>
@@ -14,4 +13,4 @@ function StatsTitle() {
 }
 
 
-export default StatsTitle;
+export default TitleNav;
