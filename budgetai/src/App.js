@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import SignUpForm from './components/SignUpForm.js'
-import SignInForm from './components/SignInForm.js'
+import SignInForm from './components/forms/SignInForm.js'
 import AccountView from './components/views/Account';
 import Protected from './scripts/WithAuth.js';
 import React, { useState, useEffect } from "react";

@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import axios from "axios"; 
 import { Navigate, useNavigate } from 'react-router-dom';
-import { getCookie, setCookie } from "../scripts/cookies";
+import { getCookie, setCookie } from "../../scripts/cookies";
 
-function SignInForm() {
+function InstitutionSettings() {
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -62,4 +62,4 @@ function SignInForm() {
     );
 }
 
-export default SignInForm;
+export default InstitutionSettings;
