@@ -32,6 +32,7 @@ function SignInForm() {
         event.preventDefault();
         const formData = { email, password};
         sendFormData(formData);
+        setCookie("email", email)
         console.log("Form submitted!");
     };
 

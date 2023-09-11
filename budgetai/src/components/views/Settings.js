@@ -89,7 +89,7 @@ function Settings({ responseData, parentLocation }) {
 
             <div className="option">
                 <div className={`account hide`}>
-                    <AccountSettings />
+                    <AccountSettings columnToUpdate = "email"/>
                 </div>
                 <div className={`institutions hide`}>
                     <InstitutionSettings />

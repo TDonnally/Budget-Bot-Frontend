@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios"; 
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getCookie, setCookie } from "../../scripts/cookies";
-import { FaPen, FaXmark, FaCheck } from "react-icons/fa6";
+import { FaPen, FaX, FaCheck } from "react-icons/fa6";
 
 function AccountSettings(props) {
 
@@ -16,6 +16,7 @@ function AccountSettings(props) {
         };
         try {
             const response = await axios.post(url, formData, config);
+            console.log(response);
         } catch (error) {
             console.error("Error sending form data:", error);
         }
@@ -23,7 +24,9 @@ function AccountSettings(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formData = { fieldValue };
+        const columnToUpdate = props.columnToUpdate;
+        const userEmail = getCookie("email");
+        const formData = { columnToUpdate, fieldValue, userEmail  };
         sendFormData(formData);
         console.log("Form submitted!");
     };
@@ -42,7 +45,7 @@ function AccountSettings(props) {
                     required
                 />
             <button type="submit"><FaCheck/></button>
-            <div className = "close" onClick={toggleEdit(false)}><FaXmark/></div>
+            <div className = "close" onClick={toggleEdit(false)}><FaX/></div>
             </form>
         ):(
         <>
