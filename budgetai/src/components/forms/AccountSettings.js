@@ -4,25 +4,17 @@ import axios from "axios";
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getCookie, setCookie } from "../../scripts/cookies";
 
-function AccountSettings() {
-    /*const navigate = useNavigate();
+function AccountSettings(props) {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [fieldValue, setFieldValue] = useState("");
 
     async function sendFormData(formData) {
-        const url = "http://localhost:3000/signin"; // replace with your backend API endpoint
+        const url = "http://localhost:3000/update"; // replace with your backend API endpoint
         const config = {
           headers: { "Content-Type": "application/json" },
         };
-        setCookie("token", "");
         try {
             const response = await axios.post(url, formData, config);
-            navigate("/account", {replace: true});
-            console.log("Form data sent successfully:", response.data);
-            setCookie("token", response.data.authtoken, 1);
-            navigate("/account", {replace: true});
-            console.log(getCookie("token"));
         } catch (error) {
             console.error("Error sending form data:", error);
         }
@@ -30,34 +22,20 @@ function AccountSettings() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const formData = { email, password};
+        const formData = { fieldValue };
         sendFormData(formData);
         console.log("Form submitted!");
-    };*/
+    };
 
     return (
         <>
-            <h3>Edit Account Details</h3>
-            <form /*onSubmit={handleSubmit}*/>
-            <label>
-                Email Address:
+            <form className = "field-updater" onSubmit={handleSubmit}>
                 <input
-                type="email"
-                //value={email}
-                //onChange={(event) => setEmail(event.target.value)}
-                required
+                    type={props.inputType}
+                    value={fieldValue}
+                    onChange={(event) => setFieldValue(event.target.value)}
+                    required
                 />
-            </label>
-            <br />
-            <label>
-                Password:
-                <input
-                type="password"
-                //value={password}
-                //onChange={(event) => setPassword(event.target.value)}
-                required
-                />
-            </label>
             <br />
             <button type="submit">Sign In</button>
             </form>
