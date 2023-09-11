@@ -587,7 +587,7 @@ input[type="checkbox"]:checked ~ .mobile-nav svg{
   font-weight: bold;
 }
 
-.option form>label>input, .option form>label>input:-webkit-autofill{
+.option form input, .option form input:-webkit-autofill{
   background-color: #212121 !important;
   background-image: unset !important;
   color: white !important;
@@ -603,7 +603,8 @@ input:-webkit-autofill:active{
     -webkit-background-clip: text;
     -webkit-text-fill-color: #ffffff;
 }
-.option button{
+/*Will use these styles later*/
+/*.option button{
   color: white;
   border-radius: 20px;
   padding: 10px 40px;
@@ -617,9 +618,11 @@ option button:active{
   border: 3px solid #c2cb46;
   background: #c2cb46;
   color: #212121;
-}
+}*/
 .hide {
   display: none;
 }
+
+
  
  

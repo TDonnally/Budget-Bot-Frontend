@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import 'chart.js/auto'
 import { Line } from 'react-chartjs-2';
-import { FaCaretUp } from "react-icons/fa";
+import { FaCaretUp } from "react-icons/fa6";
 
 function NetWorthChart() {
     const chartRef = useRef(null);
