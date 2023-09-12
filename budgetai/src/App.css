@@ -619,6 +619,33 @@ option button:active{
   background: #c2cb46;
   color: #212121;
 }*/
+.field-updater{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.field-updater button{
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 0px;
+  margin: 5px 0px;
+}
+.close>svg{
+  width: 30px;
+  height: 30px;
+  color: #FA8EB2;
+}
+.update-field-button>svg{
+  width: 32px;
+  height: 40px;
+  color: #46C2CB;
+}
+.field-title{
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
 .hide {
   display: none;
 }

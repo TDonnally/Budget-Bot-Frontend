@@ -89,7 +89,7 @@ function Settings({ responseData, parentLocation }) {
 
             <div className="option">
                 <div className={`account hide`}>
-                    <AccountSettings columnToUpdate = "email"/>
+                    <AccountSettings columnToUpdate = "email" fieldTitle = "Email" currentValue = { getCookie('email') } />
                 </div>
                 <div className={`institutions hide`}>
                     <InstitutionSettings />

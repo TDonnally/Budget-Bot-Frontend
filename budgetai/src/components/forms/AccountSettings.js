@@ -36,6 +36,7 @@ function AccountSettings(props) {
 
     return (
         <>
+        <p className = "field-title">{ props.fieldTitle }</p>
         {   editField ?(
             <form className = "field-updater" onSubmit={handleSubmit}>
                 <input
@@ -44,13 +45,15 @@ function AccountSettings(props) {
                     onChange={(event) => setFieldValue(event.target.value)}
                     required
                 />
-            <button type="submit"><FaCheck/></button>
+            <button className = "update-field-button" type="submit"><FaCheck/></button>
             <div className = "close" onClick={toggleEdit(false)}><FaX/></div>
             </form>
         ):(
-        <>
-            <p>Email</p>
-            <div className = "open" onClick={toggleEdit(true)}><FaPen/></div>
+        <>  
+            <div className = "field-updater">
+                <p>{ props.currentValue }</p>
+                <div className = "open" onClick={toggleEdit(true)}><FaPen/></div>
+            </div>
         </>
         )
         }
