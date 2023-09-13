@@ -12,7 +12,7 @@ function Home({ responseData }) {
   return (
       <div>
         <p style = {{fontSize: '0px'}}>Home</p>
-        <NetWorthChart data = {responseData}/>
+        <NetWorthChart chartData = {responseData}/>
         <div className="chart-cover">
           <AccountSummaries/>
           <BudgetSuggestionCarousel />

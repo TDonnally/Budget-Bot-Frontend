@@ -1,15 +1,20 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import 'chart.js/auto'
 import { Line } from 'react-chartjs-2';
 import { FaCaretUp } from "react-icons/fa6";
 
-function NetWorthChart() {
+function NetWorthChart(props) {
     const chartRef = useRef(null);
+    const accountsArray = props.chartData.accountsData.accounts;
+    const [netWorth, setNetWorth] = useState(0);
     
     useEffect(() => {
         const marginDistance = document.querySelector(".chart-container").offsetHeight;
         const accountSummary = document.querySelector(".account-summary");
         accountSummary.style.marginTop = marginDistance + 120 + "px"
+        for(var i = 0; i<accountsArray.length; i++){
+            setNetWorth(netWorth + accountsArray[i].balances.current);
+        }
       }, []);
     
 
@@ -67,7 +72,7 @@ function NetWorthChart() {
                 },
                 borderColor: "rgba(75, 192, 192, 0)",
                 label: "",
-                data: [65, 59, 67, 52, 48, 55],
+                data: [65, 59, 67, 52, 48, netWorth],
                 pointRadius: [0, 0, 0, 0, 0, 0]
             },
             {
@@ -77,7 +82,7 @@ function NetWorthChart() {
                 borderColor: "rgb(75, 192, 192)",
                 borderWidth: 4,
                 label: "",
-                data: [65, 59, 67, 52, 48, 55],
+                data: [65, 59, 67, 52, 48, netWorth],
                 pointRadius: [0, 0, 0, 0, 0, 5], // Set pointRadius to 5 for the last data point
             },
         ],
@@ -128,7 +133,7 @@ function NetWorthChart() {
                 },
             },
             tooltip: {
-                enabled: false,
+                enabled: true,
                 position: 'nearest'
             },
         },
