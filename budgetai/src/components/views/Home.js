@@ -35,7 +35,7 @@ function Home(props) {
         <p style = {{fontSize: '0px'}}>Home</p>
         <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
-          <AccountSummaries/>
+          <AccountSummaries accountsArray = {accountsArray} />
           <BudgetSuggestionCarousel />
           <SpendingBar />
         </div>
