@@ -6,6 +6,7 @@ function AccountSummaries( props ) {
     const [assets, setAssets] = useState();
     const [loans, setLoans] = useState();
     const [other, setOther] = useState();
+    const [total, setTotal] = useState();
 
     let totalsDict = {
         "depository": 0,
@@ -24,6 +25,7 @@ function AccountSummaries( props ) {
         setAssets(totalsDict["investment"].toLocaleString());
         setLoans(totalsDict["loan"].toLocaleString());
         setOther(totalsDict["other"].toLocaleString());
+        setTotal(Object.values(totalsDict).reduce((a, b) => a + b, 0).toLocaleString())
     }, [props.accountsArray])
 
     
@@ -52,7 +54,7 @@ function AccountSummaries( props ) {
             </div>
             <div>
                 <span>Total</span>
-                <span>$12,123</span>
+                <span>${ total }</span>
             </div>
         </div>
     );

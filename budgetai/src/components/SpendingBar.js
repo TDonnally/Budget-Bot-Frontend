@@ -4,14 +4,20 @@ import 'chart.js/auto'
 import { Bar } from 'react-chartjs-2';
 import { FaCaretUp } from "react-icons/fa";
 
-function SpendingBar() {
+function SpendingBar(props) {
     const chartRef = useRef(null);
     const [isComponentInView, setInComponentInView] = useState();
     const { ref, inView, entry } = useInView({
         threshold: .2,
         triggerOnce: true
-        
-      });
+
+    });
+
+    useEffect(() => {
+        for(var i = 0; i < props.transactionsArray.length; i++){
+            console.log(props.transactionsArray[i]);
+        }
+    }, []);
 
     useEffect(() => {
         setInComponentInView(inView);

@@ -4,7 +4,7 @@ import "@glidejs/glide/dist/css/glide.core.min.css";
 import { FaAngleLeft ,FaAngleRight } from "react-icons/fa";
 
 
-const sliderConfiguration= {
+const sliderConfiguration = {
     type: 'carousel',
     startAt: 0,
     perView: 1,

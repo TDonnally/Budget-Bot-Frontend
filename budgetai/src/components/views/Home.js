@@ -36,8 +36,8 @@ function Home(props) {
         <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
           <AccountSummaries accountsArray = {accountsArray} />
-          <BudgetSuggestionCarousel />
-          <SpendingBar />
+          <BudgetSuggestionCarousel/>
+          <SpendingBar  transactionsArray = {transactionsArray} />
         </div>
         {/*
         {responseData && (
