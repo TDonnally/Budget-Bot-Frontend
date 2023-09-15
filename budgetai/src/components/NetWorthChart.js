@@ -6,6 +6,11 @@ import { FaCaretUp } from "react-icons/fa6";
 function NetWorthChart(props) {
     const chartRef = useRef(null);
     const netWorthTitle = props.netWorth.toLocaleString();
+    const today = new Date();
+    const monthNames = [
+        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+      ];
     
     useEffect(() => {
         const marginDistance = document.querySelector(".chart-container").offsetHeight;
@@ -45,7 +50,7 @@ function NetWorthChart(props) {
         }
     });
     const data = {
-        labels: ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+        labels: [monthNames[today.getMonth()-5], monthNames[today.getMonth()-4], monthNames[today.getMonth()-3], monthNames[today.getMonth()-2], monthNames[today.getMonth()-1], monthNames[today.getMonth()]],
         datasets: [
             {
                 id: 1,
@@ -131,9 +136,15 @@ function NetWorthChart(props) {
             },
             tooltip: {
                 enabled: true,
+                displayColors: false,
                 position: 'nearest',
+                callbacks: {
+                    label(tooltipItems) {
+                      return `$${tooltipItems.formattedValue}`
+                    }
+                  },
                 filter: function (tooltipItem) { 
-                    return tooltipItem.datasetIndex === 0
+                    return tooltipItem.datasetIndex === 1
                   }
             },
         },
