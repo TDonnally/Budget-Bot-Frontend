@@ -5,8 +5,7 @@ import { FaCaretUp } from "react-icons/fa6";
 
 function NetWorthChart(props) {
     const chartRef = useRef(null);
-    const dataForChart = props.chartData;
-    dataForChart.push(props.netWorth)
+    const netWorthTitle = props.netWorth.toLocaleString();
     
     useEffect(() => {
         const marginDistance = document.querySelector(".chart-container").offsetHeight;
@@ -69,7 +68,7 @@ function NetWorthChart(props) {
                 },
                 borderColor: "rgba(75, 192, 192, 0)",
                 label: "",
-                data: dataForChart,
+                data: [0, 0, 0, 0, 0, props.netWorth],
                 pointRadius: [0, 0, 0, 0, 0, 0]
             },
             {
@@ -79,8 +78,9 @@ function NetWorthChart(props) {
                 borderColor: "rgb(75, 192, 192)",
                 borderWidth: 4,
                 label: "",
-                data: dataForChart,
+                data: [0, 0, 0, 0, 0, props.netWorth],
                 pointRadius: [0, 0, 0, 0, 0, 5], // Set pointRadius to 5 for the last data point
+                pointHitRadius: 0,
             },
         ],
     };
@@ -131,7 +131,10 @@ function NetWorthChart(props) {
             },
             tooltip: {
                 enabled: true,
-                position: 'nearest'
+                position: 'nearest',
+                filter: function (tooltipItem) { 
+                    return tooltipItem.datasetIndex === 0
+                  }
             },
         },
     };
@@ -140,8 +143,8 @@ function NetWorthChart(props) {
     return (
         <>
             <div className = "net-worth-container">
-                <h2>$123,435</h2>
-                <span><FaCaretUp/> $35,000</span>
+                <h2>${netWorthTitle}</h2>
+                <span><FaCaretUp/> $1,000</span>
             </div>
             <div className = "net-worth-container-background">
             </div>

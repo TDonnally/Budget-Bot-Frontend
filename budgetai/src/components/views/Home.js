@@ -12,8 +12,7 @@ function Home(props) {
   const today = new Date();
 
   const [netWorth, setNetWorth ] = useState(0);
-  const [chartData, setChartData] = useState([]);
-  useEffect(() => {
+  useEffect(() => { 
     let month = today.getMonth() + 1;
     let currentWorth = 0;
     let newWorth = 0;
@@ -26,26 +25,15 @@ function Home(props) {
     setNetWorth(currentWorth);
 
     //Init past net worths and store them in an array
-    for(var i = 0; i<transactionsArray.length; i++){
-      let transactionDate = transactionsArray[i].authorized_date.split("-");
-      let transactionMonth = parseInt(transactionDate[1], 10);
-      if(month != transactionMonth){
-        month = transactionMonth;
-        console.log(month)
-        updatedChartData.unshift(newWorth);
-      }
-      newWorth -= transactionsArray[i].amount;
-    }
-
-    setChartData(updatedChartData);
+    
   }, [])
 
   console.log(netWorth);
-  console.log(chartData);
+
   return (
       <div>
         <p style = {{fontSize: '0px'}}>Home</p>
-        <NetWorthChart chartData = { chartData } netWorth = {netWorth}/>
+        <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
           <AccountSummaries/>
           <BudgetSuggestionCarousel />
