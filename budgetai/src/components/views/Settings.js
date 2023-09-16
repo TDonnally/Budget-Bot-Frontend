@@ -8,6 +8,7 @@ import AccountSettings from "../forms/AccountSettings";
 import InstitutionSettings from "../forms/InstitutionSettings";
 import PaymentSettings from "../forms/PaymentSettings";
 import BudgetSettings from "../forms/BudgetSettings";
+import SignOut from "../SignOut";
 
 function Settings({ responseData, parentLocation }) {
     const [activeButton, setActiveButton] = useState('.account');
@@ -90,6 +91,7 @@ function Settings({ responseData, parentLocation }) {
             <div className="option">
                 <div className={`account hide`}>
                     <AccountSettings columnToUpdate = "email" fieldTitle = "Email" currentValue = { getCookie('email') } />
+                    <SignOut />
                 </div>
                 <div className={`institutions hide`}>
                     <InstitutionSettings />

@@ -6,32 +6,33 @@ import axios from 'axios';
 const Protected = ({ token, children }) => {
     const navigate = useNavigate();
     const [responseData, setResponseData] = useState(null);
-
-    async function sendFormData(userToken) {
-        console.log(`Bearer ${token}`)
-        const url = "http://localhost:3000/account"; // replace with your backend API endpoint
+    useEffect(() => {
+        if (getCookie("token")) {
+            sendFormData();
+        }
+    }, []);
+    async function sendFormData() {
+        console.log(`Bearer ${getCookie("token")}`)
+        const url = "http://localhost:3000/account"; 
         const config = {
           headers: {
             "Content-Type": "application/json",
-            Authorization: token ? `Bearer ${token}` : undefined
+            Authorization: token ? `Bearer ${getCookie("token")}` : undefined
         },
         };
       
         try {
             const response = await axios.get(url, config);
             setResponseData(response.data); 
-            console.log(response)
+            console.log(response);
+            navigate("/account/home", {replace: true});
         } catch (error) {
             console.error("Error sending form data:", error);
             navigate("/signin", {replace: true});
         }
       }
 
-      useEffect(() => {
-        if (token) {
-            sendFormData(token);
-        }
-    }, []);
+     
     if (!token){
         return <Navigate to = "/signin" replace/>
     }
