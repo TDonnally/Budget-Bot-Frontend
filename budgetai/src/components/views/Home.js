@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import { getCookie } from "../../scripts/cookies";
 import NetWorthChart from "../NetWorthChart";
 import AccountSummaries from "../AccountSummaries";
 import BudgetSuggestionCarousel from "../BudgetSuggestionCarousel";
 import MobileNav from "../MobileNav"
 import SpendingBar from "../SpendingBar"
+import PlaidLink from "../PlaidLink";
 
 
 function Home(props) {
@@ -36,6 +38,7 @@ function Home(props) {
         <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
           <AccountSummaries accountsArray = {accountsArray} />
+          <PlaidLink user={getCookie("email")}/>
           <BudgetSuggestionCarousel/>
           <SpendingBar  transactionsArray = {transactionsArray} />
         </div>

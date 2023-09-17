@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { getCookie, setCookie } from "../../scripts/cookies";
 import PlaidLink from "../PlaidLink";
@@ -12,21 +12,17 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 function AccountView({ responseData }) {
     const location = useLocation();
     
-    const isExactMatch =  ['/account/settings', '/account/home', '/account/spending'].includes(location.pathname);
-
     if (!responseData) {
         return <div>Loading...</div>;
     }
 
     if (responseData.needToken) {
-        console.log(responseData);
         return (
             <div>
                 <PlaidLink user={responseData.user.email} />
             </div>
         );
-    } else {
-        console.log(responseData.needToken);
+    } else{
         return (
             <div>
                 <MobileNav/>

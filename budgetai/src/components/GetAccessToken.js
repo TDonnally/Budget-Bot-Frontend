@@ -1,30 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';  // Corrected import
 
 function GetAccessToken(props) {
+    const navigate = useNavigate();  // Corrected usage
+
     const [account, setAccount] = useState();
     console.log(props.user);
     useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.post("http://localhost:3000/exchange-public-token", {
-            publicToken: props.publicToken,
-            email: props.user,
-          });
-          console.log("accessToken", response.data);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        }
-      };
-    
       fetchData();
     }, [props.publicToken, props.user]);
-    return account && (
+
+    const fetchData = async () => {
+      try {
+        const response = await axios.post("http://localhost:3000/exchange-public-token", {
+          publicToken: props.publicToken,
+          email: props.user,
+        });
+        console.log("accessToken", response.data);
+        window.location.reload(true)
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    return (
         <>
-          <p>Account number: {account.account}</p>
-          <p>Routing number: {account.routing}</p>
+          Account connected!
+          
         </>
     );
-  }
+}
 
-  export default GetAccessToken;
+export default GetAccessToken;

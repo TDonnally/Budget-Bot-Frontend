@@ -11,7 +11,7 @@ function SignInForm() {
     const [password, setPassword] = useState("");
 
     async function sendFormData(formData) {
-        const url = "http://localhost:3000/signin"; // replace with your backend API endpoint
+        const url = "http://localhost:3000/signin"; 
         const config = {
           headers: { "Content-Type": "application/json" },
         };
