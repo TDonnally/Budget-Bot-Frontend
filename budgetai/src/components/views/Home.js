@@ -38,7 +38,6 @@ function Home(props) {
         <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
           <AccountSummaries accountsArray = {accountsArray} />
-          <PlaidLink user={getCookie("email")}/>
           <BudgetSuggestionCarousel/>
           <SpendingBar  transactionsArray = {transactionsArray} />
         </div>

@@ -27,7 +27,7 @@ function GetAccessToken(props) {
     return (
         <>
           Account connected!
-          
+
         </>
     );
 }

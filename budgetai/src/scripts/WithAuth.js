@@ -25,7 +25,6 @@ const Protected = ({ token, children }) => {
             const response = await axios.get(url, config);
             setResponseData(response.data); 
             console.log(response);
-            navigate("/account/home", {replace: true});
         } catch (error) {
             console.error("Error sending form data:", error);
             navigate("/signin", {replace: true});
