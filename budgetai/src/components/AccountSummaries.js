@@ -17,7 +17,7 @@ function AccountSummaries( props ) {
     };
 
     useEffect(() => {
-        console.log(props.accountsArray);
+        //console.log(props.accountsArray);
         for(var i = 0; i < props.accountsArray.length; i++){
             totalsDict[props.accountsArray[i].type] += props.accountsArray[i].balances.current;
         }

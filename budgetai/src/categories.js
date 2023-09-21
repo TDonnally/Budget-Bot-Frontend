@@ -1,4 +1,4 @@
-[
+const paymentCategories = [
     {
       "PRIMARY": "INCOME",
       "DETAILED": "INCOME_DIVIDENDS",
@@ -520,3 +520,4 @@
       "DESCRIPTION": "Other miscellaneous utility bills"
     }
    ]
+export default paymentCategories;
