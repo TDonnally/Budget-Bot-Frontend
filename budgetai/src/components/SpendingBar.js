@@ -9,6 +9,19 @@ function SpendingBar(props) {
     const [isComponentInView, setInComponentInView] = useState();
     const [labelCategories, setLabelCategories] = useState();
     const [barChartData, setBarChartData] = useState();
+    const paymentCategoriesMap = {
+        "LOAN_PAYMENTS": "Loans",
+        "BANK_FEES" : "Bank Fees",
+        "ENTERTAINMENT" : "Entertainment",
+        "FOOD_AND_DRINK" : "Food & Drink",
+        "GENERAL_SERVICES" : "General Services",
+        "PERSONAL_CARE": "Personal Care",
+        "GOVERNMENT_AND_NON_PROFIT" : "Non-Profit",
+        "TRANSPORTATION": "Transportation",
+        "TRAVEL" : "Travel",
+        "RENT_AND_UTILITIES" : "Bills",
+        "GENERAL_MERCHANDISE" : "Shopping"
+    }
 
     const { ref, inView, entry } = useInView({
         threshold: .2,
@@ -35,6 +48,7 @@ function SpendingBar(props) {
         const chartLabels = [];
         const chartData = [];
         const transactionsArray = props.transactionsArray[0].transactions;
+        let items = [];
         
         for(var i = 0; i < transactionsArray.length; i++){
             if
@@ -48,18 +62,36 @@ function SpendingBar(props) {
 
                     // Check if the category exists in chartKVPs
                     if (chartKVPs.hasOwnProperty(category)) {
-                    // Increment the existing value
-                    chartKVPs[category] += amount;
+                        // Increment the existing value
+                        chartKVPs[category] += amount;
                     } else {
-                    // Add a new key-value pair
-                    chartKVPs[category] = amount;
+                        // Add a new key-value pair
+                        chartKVPs[category] = amount;
                     }
+                    
+                    // Create items array
+                    items = Object.keys(chartKVPs).map(function(key) {
+                        return [key, chartKVPs[key]];
+                    });
+                    
+                    // Sort the array based on the second element
+                    items.sort(function(first, second) {
+                        return second[1] - first[1];
+                    });
 
+                    
+                    console.log(items)
                     console.log(chartKVPs);
                     console.log(amount);
             }
             
         }
+        for(var i = 0; i<items.length; i++){
+            chartLabels.push(paymentCategoriesMap[items[i][0]])
+            chartData.push(items[i][1])
+        }
+        setLabelCategories(chartLabels);
+        setBarChartData(chartData);
     }, []);
     
     useEffect(() => {
@@ -67,11 +99,11 @@ function SpendingBar(props) {
     }, [inView]);
 
     const data = {
-        labels: ['Groceries', 'Transportation', 'Housing', 'Entertainment', 'Healthcare'],
+        labels: labelCategories,
         datasets: [
             {
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(54, 162, 235, 0.5)', 'rgba(255, 206, 86, 0.5)', 'rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)', 'rgba(255, 159, 64, 0.5)'],
+                data: barChartData,
+                backgroundColor: ['rgba(250, 142, 178, 1)', 'rgba(250, 142, 178, .9)', 'rgba(250, 142, 178, .7)', 'rgba(250, 142, 178, .6)', 'rgba(250, 142, 178, .5)', 'rgba(250, 142, 178, .4)', 'rgba(250, 142, 178, .3)', 'rgba(250, 142, 178, .2)'],
             },
         ],
     };
