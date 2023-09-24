@@ -652,6 +652,20 @@ option button:active{
   display: none;
 }
 
+.cta-section{
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
+
+}
+.cta-section button{
+    background-color: transparent;
+    color: white;
+    border: 3px solid #424242;
+    border-radius: 20px;
+    font-size: 24px;
+    padding: 10px;
+}
 
  
  

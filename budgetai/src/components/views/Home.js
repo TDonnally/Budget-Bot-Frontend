@@ -31,9 +31,6 @@ function Home(props) {
     }
     setNetWorth(currentWorth);
     setAccountsArrayCleaned(accountsArrayHolder);
-
-    //Init past net worths and store them in an array
-    
   }, [])
 
 
@@ -43,8 +40,8 @@ function Home(props) {
         <NetWorthChart netWorth = {netWorth}/>
         <div className="chart-cover">
           <AccountSummaries accountsArray = {accountsArrayCleaned} />
-          <PlaidLink user = {getCookie('email')}/>
-          <BudgetSuggestionCarousel/>
+          <PlaidLink titleText = {"Get a Better Picture of Your Budget!"} bodyText= {"Connect your bank account today and gain valuable insights into your finances – click below to get started!"} user = {getCookie('email')}/>
+          <BudgetSuggestionCarousel transactionsArray = {transactionsArray} />
           <SpendingBar  transactionsArray = {transactionsArray} />
         </div>
         {/*

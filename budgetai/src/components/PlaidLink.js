@@ -29,9 +29,13 @@ const PlaidLink = (props) => {
   });
 
   return publicToken ? (<GetAccessToken user={props.user} publicToken={publicToken} />) : (
+    <div className='cta-section'>
+      <h3>{props.titleText}</h3>
+      <p>{props.bodyText}</p>
       <button onClick={() => open()} disabled={!ready}>
-        Connect a bank account
+        Connect an Account
       </button>
+    </div>
   );
 };
 
