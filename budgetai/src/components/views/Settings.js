@@ -10,8 +10,9 @@ import PaymentSettings from "../forms/PaymentSettings";
 import BudgetSettings from "../forms/BudgetSettings";
 import SignOut from "../SignOut";
 
-function Settings({ responseData, parentLocation }) {
+function Settings(props) {
     const [activeButton, setActiveButton] = useState('.account');
+    let spendingPercents = props.responseData.spendingPercents;
 
     useEffect(() => {
         //open account details tab
@@ -25,7 +26,9 @@ function Settings({ responseData, parentLocation }) {
         return () => {
             optionsContainer.removeEventListener('click', handleOptionClick);
         };
+       
     }, []);
+
 
     // Function to handle the click event when an option is selected
     function handleOptionClick(event) {
@@ -100,7 +103,7 @@ function Settings({ responseData, parentLocation }) {
                     <PaymentSettings />
                 </div>
                 <div className={`budget hide`}>
-                    <BudgetSettings />
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents} />
                 </div>
             </div>
         </div>     

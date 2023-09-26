@@ -26,7 +26,13 @@ function AccountSettings(props) {
         event.preventDefault();
         const columnToUpdate = props.columnToUpdate;
         const userEmail = getCookie("email");
-        const formData = { columnToUpdate, fieldValue, userEmail  };
+        const formData = {   };
+        if(props.fieldJSON){
+            formData = { columnToUpdate, fieldValue, userEmail  };
+        }
+        else{
+            formData = { columnToUpdate, fieldValue, userEmail  };
+        }
         sendFormData(formData);
         console.log("Form submitted!");
     };
