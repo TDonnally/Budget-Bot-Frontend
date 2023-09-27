@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios"; 
 import { Navigate, useNavigate } from 'react-router-dom';
 import { getCookie, setCookie } from "../../scripts/cookies";
@@ -8,6 +8,10 @@ function AccountSettings(props) {
 
     const [fieldValue, setFieldValue] = useState("");
     const [editField, setEditField] = useState(false);
+
+    useEffect(() => {
+          console.log(props)      
+        },[])
 
     async function sendFormData(formData) {
         const url = "http://localhost:3000/update"; // replace with your backend API endpoint
@@ -26,9 +30,15 @@ function AccountSettings(props) {
         event.preventDefault();
         const columnToUpdate = props.columnToUpdate;
         const userEmail = getCookie("email");
-        const formData = {   };
+        let formData = {   };
         if(props.fieldJSON){
-            formData = { columnToUpdate, fieldValue, userEmail  };
+            let data = props.fieldJSON;
+            Object.entries(data).forEach(([key, value]) => {
+                if(key === props.fieldToUpdate){     
+                    data[key] = fieldValue;
+                }
+            });
+            formData = { columnToUpdate, fieldValue, userEmail, data  };
         }
         else{
             formData = { columnToUpdate, fieldValue, userEmail  };

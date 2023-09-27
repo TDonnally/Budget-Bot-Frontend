@@ -103,7 +103,7 @@ function Settings(props) {
                     <PaymentSettings />
                 </div>
                 <div className={`budget hide`}>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents} />
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
                 </div>
             </div>
         </div>     
