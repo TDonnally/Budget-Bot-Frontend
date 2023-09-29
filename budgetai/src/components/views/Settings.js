@@ -97,6 +97,7 @@ function Settings(props) {
                     <SignOut />
                 </div>
                 <div className={`institutions hide`}>
+                    /**add ability to remove and add accounts  */
                     <InstitutionSettings />
                 </div>
                 <div className={`payment hide`}>
