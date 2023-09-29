@@ -105,14 +105,10 @@ function Settings(props) {
                 <div className={`budget hide`}>
                     <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
                     <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Investment" fieldToUpdate = "investing" currentValue = { spendingPercents.investing } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
-                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Monthly Savings" fieldToUpdate = "savings" currentValue = { spendingPercents.savings } fieldJSON = {spendingPercents}/>
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Entertainment" fieldToUpdate = "ENTERTAINMENT" currentValue = { spendingPercents.ENTERTAINMENT } fieldJSON = {spendingPercents}/>
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Food & Drink" fieldToUpdate = "FOOD_AND_DRINK" currentValue = { spendingPercents.FOOD_AND_DRINK } fieldJSON = {spendingPercents}/>
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Transportation" fieldToUpdate = "TRANSPORTATION" currentValue = { spendingPercents.TRANSPORTATION } fieldJSON = {spendingPercents}/>
+                    <AccountSettings columnToUpdate = "spendingPercents" fieldTitle = "Travel" fieldToUpdate = "TRAVEL" currentValue = { spendingPercents.TRAVEL } fieldJSON = {spendingPercents}/>
                 </div>
             </div>
         </div>     
