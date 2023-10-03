@@ -11,6 +11,7 @@ import PlaidLink from "../PlaidLink";
 function Home(props) {
   const accountsArray = props.responseData.accountsData;
   const transactionsArray = props.responseData.transactionsData;
+  const spendingPercents = props.responseData.spendingPercents;
   const today = new Date();
 
   const [netWorth, setNetWorth ] = useState(0);
@@ -41,7 +42,7 @@ function Home(props) {
         <div className="chart-cover">
           <AccountSummaries accountsArray = {accountsArrayCleaned} />
           <PlaidLink titleText = {"Get a Better Picture of Your Budget!"} bodyText= {"Connect your bank account today and gain valuable insights into your finances – click below to get started!"} user = {getCookie('email')}/>
-          <BudgetSuggestionCarousel transactionsArray = {transactionsArray} />
+          <BudgetSuggestionCarousel transactionsArray = {transactionsArray} spendingPercents = {spendingPercents}/>
           <SpendingBar  transactionsArray = {transactionsArray} />
         </div>
         {/*

@@ -12,13 +12,15 @@ const sliderConfiguration = {
     focusAt: 'center'
   };
 
-function BudgetSuggestionCarousel({ responseData }) {
+function BudgetSuggestionCarousel(props) {
 
 const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
 
  useEffect(() => {
     mainGlide.mount();
+    console.log(props);
     return () => mainGlide.destroy();
+
   }, [mainGlide]);
 
 return (
