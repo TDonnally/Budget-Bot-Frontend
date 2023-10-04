@@ -16,12 +16,74 @@ function BudgetSuggestionCarousel(props) {
 
 const mainGlide = new Glide(".main__glide", sliderConfiguration); // default options
 
- useEffect(() => {
+const paymentCategoriesMap = {
+    "LOAN_PAYMENTS": "Loans",
+    "BANK_FEES" : "Bank Fees",
+    "ENTERTAINMENT" : "Entertainment",
+    "FOOD_AND_DRINK" : "Food & Drink",
+    "GENERAL_SERVICES" : "General Services",
+    "PERSONAL_CARE": "Personal Care",
+    "GOVERNMENT_AND_NON_PROFIT" : "Non-Profit",
+    "TRANSPORTATION": "Transportation",
+    "TRAVEL" : "Travel",
+    "RENT_AND_UTILITIES" : "Bills",
+    "GENERAL_MERCHANDISE" : "Shopping"
+}
+
+useEffect(() => {
+    const chartKVPs = {};
+        const chartLabels = [];
+        const chartData = [];
+        const transactionsArray = props.transactionsArray[0].transactions;
+        let items = [];
+        
+        for(var i = 0; i < transactionsArray.length; i++){
+            if
+                (   
+                    transactionsArray[i].personal_finance_category.primary != "INCOME" &&
+                    transactionsArray[i].personal_finance_category.primary != "TRANSFER_IN" &&
+                    transactionsArray[i].personal_finance_category.primary != "TRANSFER_OUT"
+                ){
+                    const category = transactionsArray[i].personal_finance_category.primary;
+                    const amount = transactionsArray[i].amount;
+
+                    // Check if the category exists in chartKVPs
+                    if (chartKVPs.hasOwnProperty(category)) {
+                        // Increment the existing value
+                        chartKVPs[category] += amount;
+                    } else {
+                        // Add a new key-value pair
+                        chartKVPs[category] = amount;
+                    }
+                    
+                    // Create items array
+                    items = Object.keys(chartKVPs).map(function(key) {
+                        return [key, chartKVPs[key]];
+                    });
+                    
+                    // Sort the array based on the second element
+                    items.sort(function(first, second) {
+                        return second[1] - first[1];
+                    });
+
+                    
+                    console.log(items)
+                    console.log(chartKVPs);
+                    console.log(amount);
+            }
+            
+        }
+        for(var i = 0; i<items.length; i++){
+            chartLabels.push(paymentCategoriesMap[items[i][0]])
+            chartData.push(items[i][1])
+        }
+}, [])
+
+useEffect(() => {
     mainGlide.mount();
-    console.log(props);
     return () => mainGlide.destroy();
 
-  }, [mainGlide]);
+}, [mainGlide]);
 
 return (
     <div className = "slider-container">
